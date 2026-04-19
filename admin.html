@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Produk</title>
+  <style>
+    :root{--pri:#ec4899;--pri-d:#be185d;--bg:#fff7fc;--card:#fff;--line:#f5d0e5;--tx:#2b1330}
+    *{box-sizing:border-box;font-family:Inter,system-ui,sans-serif}
+    body{margin:0;background:linear-gradient(180deg,#ffe4f1,#fff7fc);color:var(--tx)}
+    .wrap{max-width:1080px;margin:0 auto;padding:20px}
+    .hdr{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+    h1{font-size:24px;margin:0}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:0 10px 22px rgba(190,24,93,.09);margin-top:14px}
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    input,select,textarea,button{width:100%;padding:10px;border-radius:10px;border:1px solid #e8d5e2;font:inherit}
+    button{cursor:pointer;background:linear-gradient(120deg,var(--pri),#f472b6);color:#fff;border:none;font-weight:700}
+    button.alt{background:#fff;color:var(--pri);border:1px solid var(--pri)}
+    table{width:100%;border-collapse:collapse;font-size:13px}
+    th,td{padding:8px;border-bottom:1px solid #f6e4ef;text-align:left;vertical-align:top}
+    .row-btn{padding:7px 10px;font-size:12px}
+    .muted{opacity:.7;font-size:12px}
+    @media(max-width:900px){.grid{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}.hide-m{display:none}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hdr">
+      <h1>⚙️ Admin Produk</h1>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="alt" style="width:auto;padding:10px 14px" onclick="location.href='index.html'">← Kembali</button>
+        <button style="width:auto;padding:10px 14px" onclick="saveDb()">Simpan JSON</button>
+        <button class="alt" style="width:auto;padding:10px 14px" onclick="document.getElementById('fileIn').click()">Import JSON</button>
+        <input id="fileIn" type="file" accept="application/json" style="display:none" onchange="importDb(event)" />
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="muted">Tambah produk baru</div>
+      <div class="grid" style="margin-top:8px">
+        <input id="fName" placeholder="Nama produk" />
+        <input id="fImg" placeholder="URL gambar" />
+        <input id="fPrice" type="number" placeholder="Harga jual" />
+        <input id="fOrig" type="number" placeholder="Harga coret" />
+      </div>
+      <div class="grid2" style="margin-top:8px">
+        <select id="fCat"></select>
+        <input id="fDesc" placeholder="Deskripsi (opsional)" />
+      </div>
+      <div style="margin-top:8px;display:flex;gap:8px;align-items:center">
+        <label><input id="fNew" type="checkbox" style="width:auto" /> Tandai NEW</label>
+        <button style="max-width:220px" onclick="addProduct()">+ Tambahkan Produk</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:center">
+        <div class="muted">Kelola harga produk per kategori</div>
+        <select id="filterCat" style="max-width:260px" onchange="renderTable()"></select>
+      </div>
+      <div style="overflow:auto;margin-top:10px">
+        <table>
+          <thead>
+            <tr><th>Produk</th><th class="hide-m">Kategori</th><th>Harga</th><th>Harga Coret</th><th>NEW</th><th>Aksi</th></tr>
+          </thead>
+          <tbody id="tb"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+<script>
+let db=null;
+
+async function loadDb(){
+  const saved=localStorage.getItem('kk_products_db');
+  if(saved){
+    db=JSON.parse(saved);
+  }else{
+    const res=await fetch('products.json',{cache:'no-store'});
+    db=await res.json();
+  }
+  fillCats();
+  renderTable();
+}
+
+function fillCats(){
+  const opts=db.raw.map(c=>`<option value="${c.gc}">${c.gn}</option>`).join('');
+  document.getElementById('fCat').innerHTML=opts;
+  document.getElementById('filterCat').innerHTML='<option value="">Semua Kategori</option>'+opts;
+}
+
+function renderTable(){
+  const f=document.getElementById('filterCat').value;
+  const rows=[];
+  db.raw.forEach(cat=>{
+    if(f&&cat.gc!==f)return;
+    cat.items.forEach((it,idx)=>rows.push({cat,idx,it}));
+  });
+  document.getElementById('tb').innerHTML=rows.map(r=>`<tr>
+    <td>${r.it.n}</td>
+    <td class="hide-m">${r.cat.gn}</td>
+    <td><input type="number" value="${r.it.p}" onchange="updPrice('${r.cat.gc}',${r.idx},this.value,'p')"></td>
+    <td><input type="number" value="${r.it.op}" onchange="updPrice('${r.cat.gc}',${r.idx},this.value,'op')"></td>
+    <td><input type="checkbox" ${r.it.nw?'checked':''} onchange="updNew('${r.cat.gc}',${r.idx},this.checked)"></td>
+    <td><button class="row-btn alt" onclick="delProd('${r.cat.gc}',${r.idx})">Hapus</button></td>
+  </tr>`).join('');
+}
+
+function findCat(gc){return db.raw.find(c=>c.gc===gc)}
+function updPrice(gc,idx,val,key){const c=findCat(gc);if(!c)return;c.items[idx][key]=Number(val)||0}
+function updNew(gc,idx,val){const c=findCat(gc);if(!c)return;if(val)c.items[idx].nw=1;else delete c.items[idx].nw}
+
+function addProduct(){
+  const gc=document.getElementById('fCat').value;
+  const c=findCat(gc); if(!c)return;
+  const n=document.getElementById('fName').value.trim();
+  const i=document.getElementById('fImg').value.trim();
+  const p=Number(document.getElementById('fPrice').value||0);
+  const op=Number(document.getElementById('fOrig').value||p);
+  const d=document.getElementById('fDesc').value.trim();
+  const nw=document.getElementById('fNew').checked;
+  if(!n||!i||!p){alert('Nama, gambar, dan harga wajib diisi');return}
+  const item={n,i,p,op}; if(d)item.d=d; if(nw)item.nw=1;
+  c.items.unshift(item);
+  ['fName','fImg','fPrice','fOrig','fDesc'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('fNew').checked=false;
+  renderTable();
+}
+
+function delProd(gc,idx){
+  if(!confirm('Hapus produk ini?'))return;
+  const c=findCat(gc);if(!c)return;
+  c.items.splice(idx,1);
+  renderTable();
+}
+
+async function saveDb(){
+  const text=JSON.stringify(db,null,2);
+  localStorage.setItem('kk_products_db',text);
+  const blob=new Blob([text],{type:'application/json'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='products.json';
+  a.click();
+  URL.revokeObjectURL(a.href);
+  alert('Data tersimpan di browser & file products.json berhasil diunduh');
+}
+
+function importDb(e){
+  const f=e.target.files&&e.target.files[0];
+  if(!f)return;
+  const rd=new FileReader();
+  rd.onload=function(){
+    try{
+      const parsed=JSON.parse(String(rd.result||'{}'));
+      if(!Array.isArray(parsed.raw)) throw new Error('Format JSON tidak valid');
+      db=parsed;
+      localStorage.setItem('kk_products_db',JSON.stringify(db));
+      fillCats();
+      renderTable();
+      alert('Import JSON berhasil');
+    }catch(err){
+      alert(err.message);
+    }finally{
+      e.target.value='';
+    }
+  };
+  rd.readAsText(f);
+}
+
+loadDb().catch(()=>alert('Gagal load products.json'));
+</script>
+</body>
+</html>

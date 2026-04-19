@@ -179,6 +179,7 @@ img{-webkit-user-drag:none;user-select:none}
     <div class="chip">⭐ 4.8</div>
     <div class="chip">🕐 10-15 min</div>
     <div class="chip" id="vwChip">👀 12</div>
+    <div class="chip" onclick="openAdmin()" style="cursor:pointer">⚙️ Admin</div>
   </div>
 </div>
 
@@ -317,8 +318,7 @@ img{-webkit-user-drag:none;user-select:none}
 
 <script>
 // ===== DATA BUILDER =====
-function buildData(){
-  var raw = [
+function defaultRawData(){return [
     {gn:"Promo & Combo",gc:"Menu0005",items:[
       {n:"Free Upsize Large",d:"GRATIS UPSIZE minumanmu ke LARGE!",i:"https://cdn.kopikenangan.com/public/db5d25ff-9664-1997-90ec-de7fa35d9e0b",op:36000,p:17000},
       {n:"Promo OG Aren Series",d:"Nikmati Bundle The O.G Aren Series Diskon 25%",i:"https://cdn.kopikenangan.com/ID/release/pub/b/m/2d8eb7fb-9285-4dd9-86d6-6cc7de300299?",op:48000,p:24000},
@@ -447,10 +447,12 @@ function buildData(){
       {n:"Capybara (B)",i:"https://cdn.kopikenangan.com/public/6ba3bc95-f602-7246-c9cb-3de33dd049d9",op:49000,p:49000},
       {n:"Capybara (C)",i:"https://cdn.kopikenangan.com/public/055f2c98-4a6c-bde7-d2f2-1658252eafa2",op:49000,p:49000}
     ]}
-  ];
+  ];}
 
-  var icons={"Promo & Combo":"🔥","Baru!":"✨","Coffee":"☕","Non Coffee":"🧋","Oatside Series":"🥛","Kenangan Frappe":"🧊","Chef Martin Praja's: Signature Bake":"🥐","Kenangan Toast":"🍞","Food":"🍪","Special Merchandise":"🎁"};
-  var modalGn=["Coffee","Non Coffee","Oatside Series","Kenangan Frappe"];
+function buildData(db){
+  var raw=(db&&db.raw&&db.raw.length)?db.raw:defaultRawData();
+  var icons=(db&&db.icons)?db.icons:{"Promo & Combo":"🔥","Baru!":"✨","Coffee":"☕","Non Coffee":"🧋","Oatside Series":"🥛","Kenangan Frappe":"🧊","Chef Martin Praja's: Signature Bake":"🥐","Kenangan Toast":"🍞","Food":"🍪","Special Merchandise":"🎁"};
+  var modalGn=(db&&db.modalGn&&db.modalGn.length)?db.modalGn:["Coffee","Non Coffee","Oatside Series","Kenangan Frappe"];
   var cats={},gNames={},order=[];
 
   raw.forEach(function(g){
@@ -464,15 +466,8 @@ function buildData(){
 }
 
 // ===== INIT DATA =====
-try{
-  var D=buildData();
-  var cats=D.cats,gNames=D.gNames,order=D.order,icons=D.icons,modalGn=D.modalGn;
-}catch(e){
-  document.body.innerHTML='<div style="padding:40px;text-align:center"><h2>Error</h2><p>'+e.message+'</p></div>';
-  throw e;
-}
-
-var waNum="6282295209242",LUP=5000,PH="https://cdn-icons-png.flaticon.com/512/3075/3075977.png";
+var cats={},gNames={},order=[],icons={},modalGn=[];
+var waNum="6285161305218",LUP=5000,PH="https://cdn-icons-png.flaticon.com/512/3075/3075977.png";
 var curCat=order[2],selI=null,selCat=null,qty=1;
 var selO={temp:"Ice",size:"Regular",sweet:"Normal",ice:"Normal"};
 
@@ -481,6 +476,7 @@ function dPct(i){return i.origPrice>i.price?Math.round((1-i.price/i.origPrice)*1
 function cLabel(c){return(icons[gNames[c]]||"📦")+' '+gNames[c]}
 function esc(s){return s.replace(/'/g,"\\'")}
 function isBevCat(catCode){return modalGn.indexOf(gNames[catCode])>=0}
+function openAdmin(){window.location.href='admin.html'}
 
 // ===== RENDER CATS =====
 function rCats(){
@@ -735,8 +731,29 @@ setInterval(function(){
 document.getElementById('modal').onclick=function(e){if(e.target===this)clM()};
 
 // ===== START =====
-rCats();
-rMenu();
+function applyData(db){
+  var D=buildData(db);
+  cats=D.cats;gNames=D.gNames;order=D.order;icons=D.icons;modalGn=D.modalGn;
+  curCat=order[2]||order[0];
+  rCats();
+  rMenu();
+  uBar();
+}
+
+function initApp(){
+  try{
+    var saved=localStorage.getItem('kk_products_db');
+    if(saved){
+      applyData(JSON.parse(saved));
+      return;
+    }
+  }catch(_){}
+  fetch('products.json',{cache:'no-store'})
+    .then(function(r){if(!r.ok)throw new Error('load failed');return r.json()})
+    .then(function(db){applyData(db)})
+    .catch(function(){applyData(null)});
+}
+initApp();
 </script>
 </body>
 </html>
