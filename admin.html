@@ -62,7 +62,7 @@
       <div style="overflow:auto;margin-top:10px">
         <table>
           <thead>
-            <tr><th>Produk</th><th class="hide-m">Kategori</th><th>Harga</th><th>Harga Coret</th><th>NEW</th><th>Aksi</th></tr>
+            <tr><th>Produk</th><th>Gambar (URL)</th><th class="hide-m">Kategori</th><th>Harga</th><th>Harga Coret</th><th>NEW</th><th>Aksi</th></tr>
           </thead>
           <tbody id="tb"></tbody>
         </table>
@@ -100,6 +100,12 @@ function renderTable(){
   });
   document.getElementById('tb').innerHTML=rows.map(r=>`<tr>
     <td>${r.it.n}</td>
+    <td>
+      <div style="display:flex;align-items:center;gap:8px;min-width:240px">
+        <img src="${r.it.i||''}" alt="${r.it.n}" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3075/3075977.png'" style="width:36px;height:36px;object-fit:cover;border-radius:8px;border:1px solid #f5d0e5;flex:0 0 auto">
+        <input value="${r.it.i||''}" onchange="updField('${r.cat.gc}',${r.idx},this.value,'i')" placeholder="https://..." />
+      </div>
+    </td>
     <td class="hide-m">${r.cat.gn}</td>
     <td><input type="number" value="${r.it.p}" onchange="updPrice('${r.cat.gc}',${r.idx},this.value,'p')"></td>
     <td><input type="number" value="${r.it.op}" onchange="updPrice('${r.cat.gc}',${r.idx},this.value,'op')"></td>
@@ -111,6 +117,7 @@ function renderTable(){
 function findCat(gc){return db.raw.find(c=>c.gc===gc)}
 function updPrice(gc,idx,val,key){const c=findCat(gc);if(!c)return;c.items[idx][key]=Number(val)||0}
 function updNew(gc,idx,val){const c=findCat(gc);if(!c)return;if(val)c.items[idx].nw=1;else delete c.items[idx].nw}
+function updField(gc,idx,val,key){const c=findCat(gc);if(!c)return;c.items[idx][key]=String(val||'').trim()}
 
 function addProduct(){
   const gc=document.getElementById('fCat').value;
