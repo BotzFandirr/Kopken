@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Kopi Kenangan - Order</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--pri:#c62828;--pri-d:#8e0000;--grn:#2e7d32;--grn-l:#e8f5e9;--blu:#1565c0;--blu-l:#e3f2fd;--org:#e65100;--dk:#1a1a2e;--gy:#6b7280;--gy-l:#f3f4f6;--wh:#fff;--sh:0 4px 20px rgba(0,0,0,.08);--r:16px;--rs:10px}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:'Inter',sans-serif;background:var(--gy-l);color:var(--dk);padding-bottom:90px}
+img{-webkit-user-drag:none;user-select:none}
+
+.top-hdr{background:linear-gradient(135deg,var(--pri),var(--pri-d));color:#fff;padding:20px 20px 28px;position:relative;overflow:hidden}
+.top-hdr::after{content:'';position:absolute;bottom:-18px;left:-10%;right:-10%;height:36px;background:var(--gy-l);border-radius:50%}
+.hdr-row{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2}
+.str-info h1{font-size:20px;font-weight:800}
+.str-info p{font-size:11px;opacity:.85;margin-top:2px;font-weight:500}
+.crt-btn{width:46px;height:46px;background:rgba(255,255,255,.2);backdrop-filter:blur(10px);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;cursor:pointer;position:relative;border:2px solid rgba(255,255,255,.3);transition:.15s}
+.crt-btn:active{transform:scale(.9)}
+.crt-bdg{position:absolute;top:-4px;right:-4px;background:#fff;color:var(--pri);font-size:10px;font-weight:800;min-width:20px;height:20px;border-radius:10px;display:none;align-items:center;justify-content:center;padding:0 4px}
+.crt-bdg.on{display:flex}
+.hdr-chips{display:flex;gap:10px;margin-top:12px;position:relative;z-index:2}
+.chip{background:rgba(255,255,255,.15);backdrop-filter:blur(10px);padding:5px 10px;border-radius:20px;font-size:10px;font-weight:600}
+
+.sch-wrap{padding:0 16px;margin-top:-14px;position:relative;z-index:5}
+.sch-box{display:flex;align-items:center;background:#fff;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,.1);overflow:hidden}
+.sch-box input{flex:1;border:none;outline:none;padding:14px 14px;font-size:14px;font-family:inherit;background:transparent}
+.sch-ic{padding:0 14px;font-size:16px}
+
+.cat-sec{padding:14px 0 0;position:sticky;top:0;z-index:10;background:var(--gy-l)}
+.cat-sc{display:flex;overflow-x:auto;gap:7px;padding:0 16px 10px;scrollbar-width:none}
+.cat-sc::-webkit-scrollbar{display:none}
+.cat-t{flex:0 0 auto;padding:9px 14px;border-radius:25px;font-size:11px;font-weight:700;cursor:pointer;transition:.2s;border:2px solid transparent;background:#fff;color:var(--gy);box-shadow:0 2px 8px rgba(0,0,0,.05);white-space:nowrap}
+.cat-t.on{background:var(--pri);color:#fff;border-color:var(--pri);box-shadow:0 4px 14px rgba(198,40,40,.3)}
+.cat-cnt{font-size:9px;opacity:.6;margin-left:3px}
+
+.vw-bar{margin:0 16px 10px;padding:9px 12px;background:linear-gradient(135deg,#fff5f5,#fff0f0);border-radius:var(--rs);font-size:11px;font-weight:700;color:var(--pri);display:flex;align-items:center;gap:6px;border:1px solid #fecaca}
+.vw-dot{width:7px;height:7px;background:var(--pri);border-radius:50%;animation:bk 1.2s infinite}
+@keyframes bk{0%,100%{opacity:1}50%{opacity:.3}}
+
+.m-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:0 16px}
+.pc{background:#fff;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);transition:transform .15s;position:relative;cursor:pointer}
+.pc:active{transform:scale(.97)}
+.pc-img{position:relative;width:100%;padding-top:100%;overflow:hidden;background:var(--gy-l)}
+.pc-img img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;transition:transform .25s;pointer-events:none}
+.pc:active .pc-img img{transform:scale(1.05)}
+.pc-bdgs{position:absolute;top:7px;left:7px;display:flex;flex-direction:column;gap:3px;z-index:2}
+.bd{padding:2px 7px;border-radius:5px;font-size:9px;font-weight:800;letter-spacing:.3px;text-transform:uppercase}
+.bd.dc{background:var(--pri);color:#fff}
+.bd.nw{background:var(--blu);color:#fff}
+.bd.pr{background:var(--org);color:#fff}
+.bd.so{background:rgba(0,0,0,.55);color:#fff;position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:13px;border-radius:0;z-index:3}
+.pc-body{padding:10px 11px 11px}
+.pc-nm{font-size:12.5px;font-weight:700;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:32px}
+.pc-ds{font-size:10px;color:var(--gy);margin-top:3px;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;line-height:1.3}
+.pc-pr{margin-top:7px;display:flex;align-items:baseline;gap:5px;flex-wrap:wrap}
+.pc-ol{font-size:10.5px;color:#bbb;text-decoration:line-through;font-weight:500}
+.pc-pc{font-size:14px;font-weight:800;color:var(--pri)}
+.pc-add{width:100%;margin-top:8px;padding:9px;border:none;background:var(--pri);color:#fff;border-radius:8px;font-weight:700;font-size:11.5px;cursor:pointer;transition:.15s;font-family:inherit}
+.pc-add:active{transform:scale(.95)}
+.pc-add:disabled{background:#d1d5db;color:#9ca3af;cursor:not-allowed;transform:none!important}
+
+/* MODAL */
+.ml-ov{position:fixed;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(4px);z-index:100;display:flex;align-items:flex-end;opacity:0;pointer-events:none;transition:.3s}
+.ml-ov.sh{opacity:1;pointer-events:auto}
+.ml-sh{background:#fff;width:100%;max-height:92vh;border-radius:22px 22px 0 0;transform:translateY(100%);transition:transform .4s cubic-bezier(.32,.72,0,1);overflow:hidden;display:flex;flex-direction:column}
+.ml-ov.sh .ml-sh{transform:translateY(0)}
+.ml-hn{width:38px;height:4px;background:#ddd;border-radius:2px;margin:10px auto 0}
+.ml-scr{overflow-y:auto;flex:1;padding:0 20px 24px}
+.ml-top{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid #f0f0f0;margin-bottom:14px}
+.ml-im{width:80px;height:80px;border-radius:12px;object-fit:cover;pointer-events:none;flex-shrink:0}
+.ml-nf{flex:1;min-width:0}
+.ml-nm{font-size:16px;font-weight:800;line-height:1.3}
+.ml-ds{font-size:11px;color:var(--gy);margin-top:3px}
+.ml-pr{display:flex;align-items:baseline;gap:7px;margin-top:7px;flex-wrap:wrap}
+.ml-ol{font-size:12px;color:#bbb;text-decoration:line-through}
+.ml-pc{font-size:18px;font-weight:900;color:var(--pri)}
+.ml-dp{font-size:10px;background:#fef2f2;color:var(--pri);padding:2px 7px;border-radius:4px;font-weight:700}
+.og{margin-bottom:16px}
+.ot{font-size:12px;font-weight:700;margin-bottom:7px;display:flex;align-items:center;gap:5px}
+.og-g{display:flex;gap:7px;flex-wrap:wrap}
+.ob{padding:9px 12px;border-radius:var(--rs);border:2px solid #e5e7eb;background:#fff;font-weight:600;font-size:11.5px;cursor:pointer;transition:.2s;font-family:inherit;flex:1;min-width:70px;text-align:center}
+.ob.on{border-color:var(--pri);background:#fef2f2;color:var(--pri)}
+.ob:active{transform:scale(.96)}
+.oh{font-size:10px;color:var(--grn);margin-top:5px;font-weight:600;display:flex;align-items:center;gap:3px}
+.qr{display:flex;align-items:center;justify-content:center;gap:18px;margin:16px 0;padding:14px;background:var(--gy-l);border-radius:var(--r)}
+.qc{width:42px;height:42px;border-radius:50%;border:none;background:var(--pri);color:#fff;font-size:18px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit}
+.qc:active{transform:scale(.9)}
+.qn{font-size:20px;font-weight:800;min-width:36px;text-align:center}
+.ml-tt{font-size:11px;color:var(--gy);text-align:center;margin-bottom:5px}
+.ml-ab{width:100%;padding:15px;border:none;background:var(--pri);color:#fff;border-radius:12px;font-weight:800;font-size:14px;cursor:pointer;font-family:inherit}
+.ml-ab:active{transform:scale(.98)}
+
+/* CART */
+#cartPage{display:none}
+.ct-hdr{background:#fff;padding:14px 18px;display:flex;align-items:center;gap:10px;box-shadow:0 2px 10px rgba(0,0,0,.05);position:sticky;top:0;z-index:10}
+.ct-bk{width:36px;height:36px;border-radius:50%;background:var(--gy-l);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:15px;border:none}
+.ct-bk:active{transform:scale(.9)}
+.ct-tt{font-size:17px;font-weight:800}
+.ct-bd{padding:14px}
+.cb{background:#fff;padding:16px;border-radius:var(--r);margin-bottom:12px;box-shadow:var(--sh)}
+.cb-t{font-size:13px;font-weight:700;margin-bottom:10px}
+.cc{display:flex;gap:10px;padding:12px 0;border-bottom:1px solid #f5f5f5}
+.cc:last-child{border-bottom:none}
+.cc-img{width:58px;height:58px;border-radius:10px;object-fit:cover;flex-shrink:0}
+.cc-nf{flex:1;min-width:0}
+.cc-nm{font-size:12px;font-weight:700}
+.cc-op{font-size:9.5px;color:var(--gy);margin:2px 0}
+.cc-tg{font-size:8px;padding:1px 5px;border-radius:3px;font-weight:700;margin-right:3px}
+.cc-tg.sv{background:var(--grn-l);color:var(--grn)}
+.cc-tg.nw{background:var(--blu-l);color:var(--blu)}
+.cc-pr{display:flex;align-items:baseline;gap:5px;margin-top:3px}
+.cc-ol{font-size:10px;color:#bbb;text-decoration:line-through}
+.cc-pc{font-size:13px;font-weight:800;color:var(--pri)}
+.cc-ac{display:flex;align-items:center;gap:5px;margin-top:6px}
+.cc-qw{display:flex;align-items:center;background:var(--gy-l);border-radius:18px;padding:2px 5px;gap:3px}
+.cc-qb{width:26px;height:26px;border:none;border-radius:50%;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;cursor:pointer;font-family:inherit}
+.cc-qb.pl{background:var(--pri);color:#fff}
+.cc-qb.mn{background:#e5e7eb;color:var(--dk)}
+.cc-qb:active{transform:scale(.9)}
+.cc-qn{font-size:12px;font-weight:800;min-width:18px;text-align:center}
+.cc-dl{width:26px;height:26px;border:none;border-radius:50%;background:#fef2f2;color:var(--pri);font-size:11px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.cc-dl:active{transform:scale(.9)}
+.sv-bn{background:var(--grn-l);color:var(--grn);padding:10px 12px;border-radius:8px;display:flex;justify-content:space-between;font-weight:700;font-size:12px;margin-bottom:10px}
+.sm-rw{display:flex;justify-content:space-between;padding:5px 0;font-size:12px}
+.sm-rw.tt{font-size:15px;font-weight:800;border-top:2px solid #f0f0f0;margin-top:6px;padding-top:10px;color:var(--pri)}
+.fi{width:100%;padding:12px 14px;border-radius:12px;border:2px solid #e5e7eb;margin-top:6px;margin-bottom:6px;font-size:13px;font-family:inherit;background:#fff;outline:none}
+.fi:focus{border-color:var(--pri);background:#fef2f2}
+.fl{font-size:11px;font-weight:600;color:var(--gy);margin-top:3px}
+.sb{width:100%;padding:14px;border:none;background:var(--pri);color:#fff;border-radius:12px;font-weight:800;font-size:14px;cursor:pointer;font-family:inherit;margin-top:6px}
+.sb:active{transform:scale(.98)}
+.em-st{text-align:center;padding:40px 18px}
+.em-ic{font-size:56px;opacity:.4;margin-bottom:10px}
+.em-tt{font-size:15px;font-weight:700;margin-bottom:5px}
+.em-sb{font-size:12px;color:var(--gy);margin-bottom:16px}
+.em-bt{padding:12px 24px;border:none;background:var(--pri);color:#fff;border-radius:8px;font-weight:700;font-size:13px;cursor:pointer;font-family:inherit}
+
+#cartBar{position:fixed;bottom:0;left:0;right:0;z-index:50;padding:10px 14px;display:none}
+.cb-in{background:var(--pri);color:#fff;padding:12px 18px;border-radius:var(--r);display:flex;justify-content:space-between;align-items:center;box-shadow:0 6px 24px rgba(198,40,40,.4);animation:su .3s ease}
+@keyframes su{from{transform:translateY(100%)}to{transform:translateY(0)}}
+.cb-nf{font-weight:700;font-size:13px}
+.cb-bt{background:#fff;color:var(--pri);border:none;padding:8px 14px;border-radius:8px;font-weight:800;font-size:11px;cursor:pointer;font-family:inherit}
+
+.al-ov{position:fixed;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(4px);display:flex;justify-content:center;align-items:center;opacity:0;pointer-events:none;transition:.3s;z-index:999}
+.al-ov.sh{opacity:1;pointer-events:auto}
+.al-cd{background:#fff;padding:24px;border-radius:18px;width:85%;max-width:320px;text-align:center}
+.al-ic{font-size:42px;margin-bottom:10px}
+.al-ms{font-size:13px;line-height:1.5;margin-bottom:16px}
+.al-bt{padding:10px 28px;border:none;background:var(--pri);color:#fff;border-radius:8px;font-weight:700;font-size:13px;cursor:pointer;font-family:inherit}
+
+.tst{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(16px);background:var(--dk);color:#fff;padding:10px 18px;border-radius:24px;font-size:12px;font-weight:600;z-index:998;opacity:0;transition:.3s;white-space:nowrap;box-shadow:0 6px 20px rgba(0,0,0,.2)}
+.tst.sh{opacity:1;transform:translateX(-50%) translateY(0)}
+
+@media(min-width:480px){.m-grid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:768px){.m-grid{grid-template-columns:repeat(4,1fr);max-width:800px;margin:0 auto}.ct-bd{max-width:600px;margin:0 auto}}
+</style>
+</head>
+<body>
+
+<div class="top-hdr" id="topHdr">
+  <div class="hdr-row">
+    <div class="str-info">
+      <h1>☕ Kopi Kenangan</h1>
+      <p>Pickup Order • JASDOR by MG</p>
+    </div>
+    <div class="crt-btn" onclick="openCart()">🛒<span class="crt-bdg" id="crtBdg">0</span></div>
+  </div>
+  <div class="hdr-chips">
+    <div class="chip">⭐ 4.8</div>
+    <div class="chip">🕐 10-15 min</div>
+    <div class="chip" id="vwChip">👀 12</div>
+  </div>
+</div>
+
+<div class="sch-wrap" id="schWrap">
+  <div class="sch-box">
+    <span class="sch-ic">🔍</span>
+    <input type="text" id="schIn" placeholder="Cari menu favorit kamu..." onkeyup="doSearch()">
+  </div>
+</div>
+
+<div class="cat-sec" id="catSec">
+  <div class="cat-sc" id="catSc"></div>
+</div>
+
+<div class="vw-bar" id="vwBar">
+  <span class="vw-dot"></span>
+  <span id="vwTxt">12 orang lagi lihat menu ini</span>
+</div>
+
+<div id="menuPage">
+  <div id="menuGrid" class="m-grid"></div>
+</div>
+
+<div id="cartPage">
+  <div class="ct-hdr">
+    <button class="ct-bk" onclick="backMenu()">←</button>
+    <div class="ct-tt">🛒 Keranjang</div>
+  </div>
+  <div class="ct-bd">
+    <div class="cb">
+      <div class="cb-t">📦 Item Pesanan</div>
+      <div id="cartItems"></div>
+      <div id="emptyCt" class="em-st" style="display:none">
+        <div class="em-ic">🛒</div>
+        <div class="em-tt">Keranjang Kosong</div>
+        <div class="em-sb">Yuk pilih menu favorit kamu!</div>
+        <button class="em-bt" onclick="backMenu()">Mulai Belanja</button>
+      </div>
+    </div>
+    <div class="cb" id="sumBox">
+      <div class="cb-t">💰 Ringkasan</div>
+      <div class="sv-bn"><span>🎉 Kamu Hemat</span><span id="svTot">Rp 0</span></div>
+      <div class="sm-rw"><span>Subtotal</span><span id="prTot">Rp 0</span></div>
+      <div class="sm-rw"><span>Biaya admin</span><span>Rp 0</span></div>
+      <div class="sm-rw tt"><span>Total</span><span id="fnTot">Rp 0</span></div>
+    </div>
+    <div class="cb">
+      <div class="cb-t">📍 Info Pickup</div>
+      <div class="fl">Nama Pemesan</div>
+      <input id="cName" class="fi" placeholder="Masukkan nama">
+      <div class="fl">Outlet Kopi Kenangan</div>
+      <input id="cLoc" class="fi" placeholder="Contoh: Kenangan Tangcity">
+      <div class="fl">Waktu Pickup</div>
+      <input type="time" id="cTime" class="fi">
+      <div class="fl">Catatan (opsional)</div>
+      <textarea id="cNote" class="fi" placeholder="Contoh: less ice" rows="2"></textarea>
+      <button class="sb" onclick="orderWA()">📱 Pesan via WhatsApp</button>
+    </div>
+  </div>
+</div>
+
+<div class="ml-ov" id="modal">
+<div class="ml-sh">
+  <div class="ml-hn"></div>
+  <div class="ml-scr">
+    <div class="ml-top">
+      <img class="ml-im" id="mImg" src="">
+      <div class="ml-nf">
+        <div class="ml-nm" id="mNm"></div>
+        <div class="ml-ds" id="mDs"></div>
+        <div class="ml-pr">
+          <span class="ml-ol" id="mOl"></span>
+          <span class="ml-pc" id="mPc"></span>
+          <span class="ml-dp" id="mDp"></span>
+        </div>
+      </div>
+    </div>
+    <div id="optSec">
+      <div class="og" id="tempGrp">
+        <div class="ot">🌡️ Temperature</div>
+        <div class="og-g" id="oTemp">
+          <button class="ob on" onclick="sOpt(this,'temp')">🧊 Ice</button>
+          <button class="ob" onclick="sOpt(this,'temp')">🔥 Hot</button>
+        </div>
+      </div>
+      <div class="og" id="sizeGrp">
+        <div class="ot">📐 Size</div>
+        <div class="og-g" id="oSize">
+          <button class="ob on" onclick="sOpt(this,'size')">Regular</button>
+          <button class="ob" onclick="sOpt(this,'size')">Large (+5rb)</button>
+        </div>
+        <div class="oh" id="upHint">💡 Upgrade ke Large cuma +5rb!</div>
+      </div>
+      <div class="og" id="sweetGrp">
+        <div class="ot">🍬 Sweetness</div>
+        <div class="og-g" id="oSweet">
+          <button class="ob on" onclick="sOpt(this,'sweet')">Normal</button>
+          <button class="ob" onclick="sOpt(this,'sweet')">Less</button>
+          <button class="ob" onclick="sOpt(this,'sweet')">No Sugar</button>
+        </div>
+      </div>
+      <div class="og" id="iceGrp">
+        <div class="ot">🧊 Ice Level</div>
+        <div class="og-g" id="oIce">
+          <button class="ob on" onclick="sOpt(this,'ice')">Normal</button>
+          <button class="ob" onclick="sOpt(this,'ice')">Less</button>
+          <button class="ob" onclick="sOpt(this,'ice')">No Ice</button>
+        </div>
+      </div>
+    </div>
+    <div class="qr">
+      <button class="qc" onclick="mQty(-1)">−</button>
+      <span class="qn" id="mQty">1</span>
+      <button class="qc" onclick="mQty(1)">+</button>
+    </div>
+    <div class="ml-tt">Total: <strong id="mTotPc"></strong></div>
+    <button class="ml-ab" onclick="addProd()">Tambah ke Keranjang • <span id="mBtnPc">Rp 0</span></button>
+  </div>
+</div>
+</div>
+
+<div class="al-ov" id="alBox">
+  <div class="al-cd">
+    <div class="al-ic">⚠️</div>
+    <p class="al-ms" id="alTxt"></p>
+    <button class="al-bt" onclick="clAl()">Oke</button>
+  </div>
+</div>
+
+<script>
+// ===== DATA BUILDER =====
+function buildData(){
+  var raw = [
+    {gn:"Promo & Combo",gc:"Menu0005",items:[
+      {n:"Free Upsize Large",d:"GRATIS UPSIZE minumanmu ke LARGE!",i:"https://cdn.kopikenangan.com/public/db5d25ff-9664-1997-90ec-de7fa35d9e0b",op:36000,p:17000},
+      {n:"Promo OG Aren Series",d:"Nikmati Bundle The O.G Aren Series Diskon 25%",i:"https://cdn.kopikenangan.com/ID/release/pub/b/m/2d8eb7fb-9285-4dd9-86d6-6cc7de300299?",op:48000,p:24000},
+      {n:"Signature Duo Disc 30%",d:"Nikmati 2 makanan favoritmu discount 30%!",i:"https://cdn.kopikenangan.com/ID/release/pub/b/m/afef0486-8a9f-4142-b133-21b9290cbdd0?",op:28000,p:19600},
+      {n:"3 Roti Discount 15%",d:"Promo Spesial 3 Roti Cocok untuk Teman Kopimu!",i:"https://cdn.kopikenangan.com/ID/release/pub/b/m/2d7b3cab-2e0e-440e-bae5-79dcf1bfa252?",op:42000,p:33150},
+      {n:"Beli 3 Hanya 47RB",d:"2 Kopi Susu Black Aren (R) + Gratis 1 Americano (R)",i:"https://cdn.kopikenangan.com/public/f8b0b941-bf2c-3949-0476-4e88c0a3c284",op:47000,p:47000},
+      {n:"PEKA 1",d:"3 Es Milo Dinosaurus (R) & 2 Es Kopi Kenangan Mantan (R)",i:"https://cdn.kopikenangan.com/public/77fdc0c2-0c39-a78e-1191-3ca3dc9a734a",op:104000,p:95000},
+      {n:"PEKA 2",d:"2 Es Americano (R) & 3 Es Kopi Kenangan Mantan (R)",i:"https://cdn.kopikenangan.com/public/4006f1d3-c580-8e27-1c1c-dc2f2d1b32f8",op:91000,p:84000},
+      {n:"Oatside Kopi Kenangan Mantan",d:"",i:"https://cdn.kopikenangan.com/public/c651acb8-3df7-7b75-45e2-f207926d863a",op:22000,p:22000},
+      {n:"Oatside Latte",d:"",i:"https://cdn.kopikenangan.com/public/4890326b-b307-b2f8-a6f1-1a6ae4b15804",op:24000,p:24000},
+      {n:"2 Savory Toasts",d:"Nikmati 2 savory toast dengan harga promo!",i:"https://cdn.kopikenangan.com/ID/release/pub/b/m/8b4e82ad-3de3-4f24-8a7e-96138d30b8d1?",op:38000,p:33000},
+      {n:"PaHe 1",d:"Americano & food favorit pilihanmu!",i:"https://cdn.kopikenangan.com/ID/release/pub/b/m/71841a98-2a74-412e-b40e-69a0dc309e8f?",op:38000,p:19000},
+      {n:"PaHe 2",d:"Kopi Kenangan Mantan & food favorit pilihanmu!",i:"https://cdn.kopikenangan.com/ID/release/pub/b/m/456ef4d2-ae9b-41b0-a393-eabbd2852cc2?",op:40000,p:27000},
+      {n:"PaHe 3",d:"Milo Dinosaurus & food favorit pilihanmu!",i:"https://cdn.kopikenangan.com/ID/release/pub/b/m/b830d898-4339-4bbb-9a2f-1d97fd55b059?",op:43000,p:28000}
+    ]},
+    {gn:"Baru!",gc:"ArenSeries",items:[
+      {n:"OG Aren Milky Speculoos",nw:1,i:"https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/cc9f17b7-deb3-463e-ba9a-e1ba98ca3767?",op:22000,p:22000},
+      {n:"OG Aren Speculoos Latte",nw:1,i:"https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/2fe841e8-1b7a-47ad-a52d-34902f5fc564?",op:20000,p:20000},
+      {n:"Dua Shot OG Aren",nw:1,i:"https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/a9ae7cf2-e7e6-4508-a3d4-03a929d2537c?",op:24000,p:24000},
+      {n:"OG Aren Cup Holder",nw:1,i:"https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/187b9572-6155-43ef-a92d-c011a2259ad5?",op:17000,p:17000},
+      {n:"Canele Aren",nw:1,i:"https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/2902fb9a-1dd1-43c5-a012-50d12343d20a?",op:16000,p:16000},
+      {n:"Choco Muffin",nw:1,i:"https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/ad2888b6-7984-4af8-b51f-fe133c3358f3?",op:16000,p:16000},
+      {n:"Blueberry Muffin",nw:1,i:"https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/700109f4-1197-4092-af61-6b44c9b9c6c5?",op:16000,p:16000},
+      {n:"Choco Caramel",i:"https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/6ea1cf28-bb9f-40f7-9b6d-94b24f1da329?",op:18000,p:18000},
+      {n:"Mocha Caramel",i:"https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/2c86e33d-72e9-432f-abdd-e2019b4fda7a?",op:25000,p:25000},
+      {n:"Choco Caramel Frappe",i:"https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/c96dd180-921d-4b2b-8967-97bc60af7f8d?",op:27000,p:27000},
+      {n:"Vanilla Choux Puff",i:"https://cdn.kopikenangan.com/ID/release/pub/b/m/3756409f-4b66-45a6-a7d0-79df1781c98f?",op:13000,p:13000},
+      {n:"Strawberry Choux Puff",i:"https://cdn.kopikenangan.com/ID/release/pub/b/m/5d94a75d-6bc7-4cb1-9a1b-714833df3d2a?",op:13000,p:13000},
+      {n:"Chocolate Choux Puff",i:"https://cdn.kopikenangan.com/ID/release/pub/b/m/ca97cd27-d2de-46ba-9a50-df65be642329?",op:13000,p:13000}
+    ]},
+    {gn:"Coffee",gc:"Menu0002",items:[
+      {n:"OG Aren Speculoos Latte",nw:1,i:"https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/2fe841e8-1b7a-47ad-a52d-34902f5fc564?",op:20000,p:20000},
+      {n:"Dua Shot OG Aren",nw:1,i:"https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/a9ae7cf2-e7e6-4508-a3d4-03a929d2537c?",op:24000,p:24000},
+      {n:"Mocha Caramel",i:"https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/2c86e33d-72e9-432f-abdd-e2019b4fda7a?",op:25000,p:25000},
+      {n:"Tiramisu Latte",i:"https://cdn.kopikenangan.com/public/cb4aec85-075e-1baf-0c74-ba1e28f9a64b",op:19000,p:19000},
+      {n:"Tiramisu Mocha Latte",i:"https://cdn.kopikenangan.com/public/1f4ac8e0-8e0d-dcf4-2f9e-3827b9c7788b",op:24000,p:24000},
+      {n:"Toffee Nut Latte",i:"https://cdn.kopikenangan.com/public/c4dac7ee-aaf7-cf83-715a-cc3c0f9a5725",op:18000,p:18000},
+      {n:"Toffee Nut Aren Latte",i:"https://cdn.kopikenangan.com/public/d45952aa-9f21-24f8-9ef4-5dfe87fda33d",op:20000,p:20000},
+      {n:"Toffee Nut Oat Latte",i:"https://cdn.kopikenangan.com/public/6176a4f6-6e9a-1385-4af0-fd603114fdcf",op:21000,p:21000},
+      {n:"Kopi Kenangan Mantan",i:"https://cdn.kopikenangan.com/public/da484154-47b1-a756-54a4-8b3490fb0eae",op:19000,p:19000},
+      {n:"Caramel Latte",i:"https://cdn.kopikenangan.com/public/630c892e-17a7-0d8c-301f-9e2d33bf1de8",op:25000,p:25000},
+      {n:"Dua Shot Iced Shaken",i:"https://cdn.kopikenangan.com/public/82e14825-c028-65d6-0c70-c352639bcf23",op:25000,p:25000},
+      {n:"Caramel Macchiato",i:"https://cdn.kopikenangan.com/public/821509a2-815f-3349-896c-9d15f787ab37",op:28000,p:28000},
+      {n:"Kopi Susu Black Aren",i:"https://cdn.kopikenangan.com/public/2ba99b9b-7912-397a-9fea-a21d4073a197",op:21000,p:21000},
+      {n:"Matcha Espresso",i:"https://cdn.kopikenangan.com/public/20738f57-23ed-ea72-85f3-cdd8bc468352",op:25000,p:25000},
+      {n:"Mocha Latte",i:"https://cdn.kopikenangan.com/public/92fe7698-7b99-9b4b-39db-8b01557fecb3",op:28000,p:28000},
+      {n:"Vanilla Latte",i:"https://cdn.kopikenangan.com/public/6831574a-3d7f-d543-9a0c-bd68e7dcb54a",op:25000,p:25000},
+      {n:"Spanish Latte",i:"https://cdn.kopikenangan.com/public/e3aa23b8-278d-54a0-0769-0de6e82b4d60",op:19000,p:19000},
+      {n:"Creamy Aren Latte",i:"https://cdn.kopikenangan.com/public/34ac251c-14e6-44b7-d2b9-b4c63f6e2136",op:21000,p:21000},
+      {n:"Americano",i:"https://cdn.kopikenangan.com/public/36155ddd-784d-a7d9-4d02-13d596417078",op:17000,p:17000},
+      {n:"Cappuccino",i:"https://cdn.kopikenangan.com/public/8a0d42d0-4801-ca84-48e9-7b434b22aee4",op:21000,p:21000},
+      {n:"Latte",i:"https://cdn.kopikenangan.com/public/7b33aac1-3e8a-f15d-bb58-158692adf173",op:21000,p:21000},
+      {n:"Seliter - Americano",i:"https://cdn.kopikenangan.com/public/13344adc-4cc2-3113-b934-f2e8ba4fc0e9",op:75000,p:75000},
+      {n:"Seliter - KKM",i:"https://cdn.kopikenangan.com/public/efa811be-2b27-3b4d-6ca9-ea01b09615f4",op:90000,p:90000},
+      {n:"Seliter - Latte",i:"https://cdn.kopikenangan.com/public/aeae2c5f-6c75-97af-1325-5ae2a4592744",op:90000,p:90000},
+      {n:"Seliter - Matcha Espresso",i:"https://cdn.kopikenangan.com/public/2f308a12-0ef5-afbe-f88f-58e074215fd2",op:110000,p:110000},
+      {n:"Seliter - Caramel Macchiato",i:"https://cdn.kopikenangan.com/public/5d630716-4183-1dc2-a85b-8d454ad1fc59",op:100000,p:100000},
+      {n:"Seliter - Kopi Susu Black Aren",i:"https://cdn.kopikenangan.com/public/23e79400-9a1c-79a9-27ba-4120fa5a02ae",op:95000,p:95000}
+    ]},
+    {gn:"Non Coffee",gc:"Menu0003",items:[
+      {n:"OG Aren Milky Speculoos",nw:1,i:"https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/cc9f17b7-deb3-463e-ba9a-e1ba98ca3767?",op:22000,p:22000},
+      {n:"Choco Caramel",i:"https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/6ea1cf28-bb9f-40f7-9b6d-94b24f1da329?",op:18000,p:18000},
+      {n:"Toffee Nut Choco Macchiato",i:"https://cdn.kopikenangan.com/public/ffc634eb-9bf9-6258-c541-b2407581cd4c",op:21000,p:21000},
+      {n:"Milk Oreo Crumble",i:"https://cdn.kopikenangan.com/public/d27c63d0-4931-60fd-5eec-0963bdf095fc",op:26000,p:26000},
+      {n:"Babyccino",i:"https://cdn.kopikenangan.com/public/afd5cdf3-964b-a63a-6db2-fb8c08410c61",op:19000,p:19000},
+      {n:"Caramel Dutch Choco",i:"https://cdn.kopikenangan.com/public/c241a3f5-7e20-25be-a067-76170345d684",op:26000,p:26000},
+      {n:"Dutch Chocolate",i:"https://cdn.kopikenangan.com/public/e7dfc639-f112-28b7-4cff-8e1cda6f82b5",op:24000,p:24000},
+      {n:"Kenangan Milk Tea",i:"https://cdn.kopikenangan.com/public/5a15d4ef-582c-1391-5e58-e523d6b87398",op:20000,p:20000},
+      {n:"Milo Dinosaurus",i:"https://cdn.kopikenangan.com/public/658f1737-546d-133b-ac36-aea2f524920c",op:22000,p:22000},
+      {n:"Oreo Shake",i:"https://cdn.kopikenangan.com/public/8c0d86d6-3c45-8c5e-4679-ae4f6d935583",op:24000,p:24000},
+      {n:"Susu Grass Jelly",i:"https://cdn.kopikenangan.com/public/9717e724-83d5-7c5f-55b9-efbb1b2a7864",op:24000,p:24000},
+      {n:"Seliter - Matcha Latte",i:"https://cdn.kopikenangan.com/public/8399401d-f6a9-6ad9-b95d-7ed16eddaf39",op:100000,p:100000},
+      {n:"Air Mineral",i:"https://cdn.kopikenangan.com/public/a05ec204-65cd-2025-adcf-c7f141ce21c3",op:9000,p:9000}
+    ]},
+    {gn:"Oatside Series",gc:"OatsideSeries",items:[
+      {n:"Oatside Kopi Kenangan Mantan",i:"https://cdn.kopikenangan.com/public/c651acb8-3df7-7b75-45e2-f207926d863a",op:22000,p:22000},
+      {n:"Oatside Latte",i:"https://cdn.kopikenangan.com/public/4890326b-b307-b2f8-a6f1-1a6ae4b15804",op:24000,p:24000},
+      {n:"Oatside Matcha Latte",i:"https://cdn.kopikenangan.com/public/d048cf0f-ed3f-8b76-26b0-75f651fe5dc7",op:24000,p:24000}
+    ]},
+    {gn:"Kenangan Frappe",gc:"FREEZYSERIES",items:[
+      {n:"Choco Caramel Frappe",i:"https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/c96dd180-921d-4b2b-8967-97bc60af7f8d?",op:27000,p:27000},
+      {n:"Tiramisu Frappe",i:"https://cdn.kopikenangan.com/public/888be148-968b-e625-9f7c-e8a823563954",op:27000,p:27000},
+      {n:"Butterscotch Kenangan Frappe",i:"https://cdn.kopikenangan.com/public/36ac278e-5212-00b3-ce73-e347a88b0372",op:29000,p:29000},
+      {n:"Matcha Kenangan Frappe",i:"https://cdn.kopikenangan.com/public/f3c9aacf-fbae-370a-082d-9e719e4909e7",op:31000,p:31000},
+      {n:"Kopi Kenangan Mantan Frappe",i:"https://cdn.kopikenangan.com/public/18899b9c-b242-468f-1839-c096e27b0225",op:26000,p:26000},
+      {n:"Vanilla Kenangan Frappe",i:"https://cdn.kopikenangan.com/public/839fa121-427c-110e-6550-479d604d1f2d",op:24000,p:24000},
+      {n:"Dutch Choco Kenangan Frappe",i:"https://cdn.kopikenangan.com/public/0bf0ec79-18a9-414f-4b7e-e50b940495bf",op:28000,p:28000}
+    ]},
+    {gn:"Chef Martin Praja's: Signature Bake",gc:"APPMARTINPRAJAFOOD",items:[
+      {n:"Canele Aren",nw:1,i:"https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/2902fb9a-1dd1-43c5-a012-50d12343d20a?",op:16000,p:16000},
+      {n:"Choco Muffin",nw:1,i:"https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/ad2888b6-7984-4af8-b51f-fe133c3358f3?",op:16000,p:16000},
+      {n:"Blueberry Muffin",nw:1,i:"https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/700109f4-1197-4092-af61-6b44c9b9c6c5?",op:16000,p:16000},
+      {n:"Vanilla Choux Puff",i:"https://cdn.kopikenangan.com/ID/release/pub/b/m/3756409f-4b66-45a6-a7d0-79df1781c98f?",op:13000,p:13000},
+      {n:"Strawberry Choux Puff",i:"https://cdn.kopikenangan.com/ID/release/pub/b/m/5d94a75d-6bc7-4cb1-9a1b-714833df3d2a?",op:13000,p:13000},
+      {n:"Chocolate Choux Puff",i:"https://cdn.kopikenangan.com/ID/release/pub/b/m/ca97cd27-d2de-46ba-9a50-df65be642329?",op:13000,p:13000},
+      {n:"Donut Tiramisu",i:"https://cdn.kopikenangan.com/public/89a7830a-0585-c6b0-5071-e1c6bf92ba4b",op:14000,p:14000},
+      {n:"Salt Bread Original",i:"https://cdn.kopikenangan.com/public/952cbb6b-29f4-1822-1279-d71c11361897",op:12000,p:12000},
+      {n:"Salt Bread Beef and Cheese",i:"https://cdn.kopikenangan.com/public/f94c4c73-d6f8-e075-8cd2-335b01d3d56d",op:15000,p:15000},
+      {n:"Canele Original",i:"https://cdn.kopikenangan.com/public/ed8752cd-2ce6-eac2-5493-8960e76e9af6",op:14000,p:14000},
+      {n:"Canele Toffee Nut Crumble",i:"https://cdn.kopikenangan.com/public/ab071238-ab7e-5e2a-6d48-d99d12090c57",op:16000,p:16000},
+      {n:"Donut Almond",i:"https://cdn.kopikenangan.com/public/af51a03c-0c7b-40e6-6986-ef28d9777253",op:14000,p:14000},
+      {n:"Roti Gulung Abon",i:"https://cdn.kopikenangan.com/public/96a88ebb-7e2a-88b7-3932-5826ed5c4468",op:18000,p:18000},
+      {n:"Roti Gulung Aren",i:"https://cdn.kopikenangan.com/public/65daa6d6-ca8b-9afd-8a0f-10ff6e3f0ac9",op:15000,p:15000}
+    ]},
+    {gn:"Kenangan Toast",gc:"TOAST",items:[
+      {n:"Bambang Choco Cheese Toast",i:"https://cdn.kopikenangan.com/public/bccc5e24-0e25-1a67-1361-5b22783c1833",op:17000,p:17000},
+      {n:"Adam Ayam Toast",i:"https://cdn.kopikenangan.com/public/79146711-94ca-c5cf-8b18-11205acac4b7",op:19000,p:19000},
+      {n:"Wahyu Sapi Toast",i:"https://cdn.kopikenangan.com/public/9844851e-1ef8-dc73-309f-24bad50dffab",op:19000,p:19000}
+    ]},
+    {gn:"Food",gc:"Group0005",items:[
+      {n:"Butter Croissant",i:"https://cdn.kopikenangan.com/public/c45258b8-74b3-fb41-090d-b9f3a58cc343",op:15000,p:15000},
+      {n:"Chocolate Croissant",i:"https://cdn.kopikenangan.com/public/c1f26135-eacc-4eca-0444-8356c507e0db",op:19000,p:19000},
+      {n:"Choco Chip Cookies",i:"https://cdn.kopikenangan.com/public/4974032d-c48d-eac4-93a9-a5d47eaf5f60",op:14000,p:14000},
+      {n:"Join the Dark Side Cookie",i:"https://cdn.kopikenangan.com/public/94e34498-1f57-c04a-c44b-8eb1043ffdf4",op:21000,p:21000},
+      {n:"Friend Chip Cookie",i:"https://cdn.kopikenangan.com/public/bf62a77f-41cf-babb-97e1-4dfc6a889487",op:17000,p:17000}
+    ]},
+    {gn:"Special Merchandise",gc:"APPMERCHANDISE",items:[
+      {n:"OG Aren Cup Holder",nw:1,i:"https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/187b9572-6155-43ef-a92d-c011a2259ad5?",op:17000,p:17000},
+      {n:"Alpha Cup",i:"https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/a23787cd-000f-4821-8da4-ee494547ec77?",op:149000,p:149000},
+      {n:"ColorPop Twins Cup",i:"https://cdn.kopikenangan.com/public/7e869461-8bd6-cdaa-82cc-3807d27bc39d",op:169000,p:169000},
+      {n:"ColorPop Twins Tumbler",i:"https://cdn.kopikenangan.com/public/5af438c0-b01b-e538-8496-8fc6815c4536",op:179000,p:179000},
+      {n:"ColorPop Cup",i:"https://cdn.kopikenangan.com/public/c95f2d85-3720-2e8c-549c-0058dbeae1f8",op:129000,p:129000},
+      {n:"ColorPop Sip Tumbler",i:"https://cdn.kopikenangan.com/public/dc890be9-01b5-0bbd-9ead-9247cfed603b",op:209000,p:209000},
+      {n:"ColorPop Bottle",i:"https://cdn.kopikenangan.com/public/4cc9f0ae-e0c5-f405-6adc-048d9d1725ce",op:179000,p:179000},
+      {n:"Capybara (A)",i:"https://cdn.kopikenangan.com/public/e31a5bc6-e1b4-7949-b1d4-fb7a4367b137",op:49000,p:49000},
+      {n:"Capybara (B)",i:"https://cdn.kopikenangan.com/public/6ba3bc95-f602-7246-c9cb-3de33dd049d9",op:49000,p:49000},
+      {n:"Capybara (C)",i:"https://cdn.kopikenangan.com/public/055f2c98-4a6c-bde7-d2f2-1658252eafa2",op:49000,p:49000}
+    ]}
+  ];
+
+  var icons={"Promo & Combo":"🔥","Baru!":"✨","Coffee":"☕","Non Coffee":"🧋","Oatside Series":"🥛","Kenangan Frappe":"🧊","Chef Martin Praja's: Signature Bake":"🥐","Kenangan Toast":"🍞","Food":"🍪","Special Merchandise":"🎁"};
+  var modalGn=["Coffee","Non Coffee","Oatside Series","Kenangan Frappe"];
+  var cats={},gNames={},order=[];
+
+  raw.forEach(function(g){
+    var c=g.gc;order.push(c);gNames[c]=g.gn;
+    cats[c]=g.items.map(function(it){
+      return{name:it.n,img:it.i,price:it.p,origPrice:it.op,desc:it.d||'',isNew:!!it.nw,orders:null};
+    });
+  });
+
+  return{cats:cats,gNames:gNames,order:order,icons:icons,modalGn:modalGn};
+}
+
+// ===== INIT DATA =====
+try{
+  var D=buildData();
+  var cats=D.cats,gNames=D.gNames,order=D.order,icons=D.icons,modalGn=D.modalGn;
+}catch(e){
+  document.body.innerHTML='<div style="padding:40px;text-align:center"><h2>Error</h2><p>'+e.message+'</p></div>';
+  throw e;
+}
+
+var waNum="6285161305218",LUP=5000,PH="https://cdn-icons-png.flaticon.com/512/3075/3075977.png";
+var curCat=order[2],selI=null,selCat=null,qty=1;
+var selO={temp:"Ice",size:"Regular",sweet:"Normal",ice:"Normal"};
+
+function fRp(n){return'Rp '+n.toLocaleString('id-ID')}
+function dPct(i){return i.origPrice>i.price?Math.round((1-i.price/i.origPrice)*100):0}
+function cLabel(c){return(icons[gNames[c]]||"📦")+' '+gNames[c]}
+function esc(s){return s.replace(/'/g,"\\'")}
+function isBevCat(catCode){return modalGn.indexOf(gNames[catCode])>=0}
+
+// ===== RENDER CATS =====
+function rCats(){
+  var el=document.getElementById('catSc');el.innerHTML='';
+  order.forEach(function(c){
+    var b=document.createElement('button');b.className='cat-t';b.id='tab-'+c;
+    b.innerHTML=cLabel(c)+'<span class="cat-cnt">'+cats[c].length+'</span>';
+    if(c===curCat)b.classList.add('on');
+    b.onclick=function(){swCat(c)};el.appendChild(b);
+  });
+}
+
+function swCat(c){
+  curCat=c;
+  document.querySelectorAll('.cat-t').forEach(function(b){b.classList.remove('on')});
+  var t=document.getElementById('tab-'+c);if(t)t.classList.add('on');
+  document.getElementById('schIn').value='';rMenu();
+}
+
+// ===== RENDER MENU =====
+function rMenu(){
+  var m=document.getElementById('menuGrid');m.innerHTML='';
+  var items=cats[curCat]||[];
+  items.forEach(function(item,i){
+    var disc=dPct(item);
+    var d=document.createElement('div');d.className='pc';
+    d.onclick=function(){openM(i)};
+    var bdgs='';
+    if(disc>0)bdgs+='<div class="bd dc">-'+disc+'%</div>';
+    if(item.isNew)bdgs+='<div class="bd nw">NEW</div>';
+    else if(disc>0)bdgs+='<div class="bd pr">PROMO</div>';
+
+    d.innerHTML='<div class="pc-img"><img src="'+item.img+'" alt="'+item.name+'" onerror="this.src=\''+PH+'\'"><div class="pc-bdgs">'+bdgs+'</div></div><div class="pc-body"><div class="pc-nm">'+item.name+'</div>'+(item.desc?'<div class="pc-ds">'+item.desc+'</div>':'')+'<div class="pc-pr"><span class="pc-ol">'+fRp(item.origPrice)+'</span><span class="pc-pc">'+fRp(item.price)+'</span></div><button class="pc-add" onclick="event.stopPropagation();openM('+i+')">＋ Tambah</button></div>';
+    m.appendChild(d);
+  });
+}
+
+// ===== MODAL =====
+function openM(i){
+  selI=i;selCat=curCat;qty=1;selO={temp:"Ice",size:"Regular",sweet:"Normal",ice:"Normal"};
+  ['oTemp','oSize','oSweet','oIce'].forEach(function(id){
+    document.getElementById(id).querySelectorAll('.ob').forEach(function(b,idx){b.classList.toggle('on',idx===0)});
+  });
+
+  var item=cats[selCat][i],disc=dPct(item);
+  var isBev=isBevCat(selCat);
+  document.getElementById('mNm').innerText=item.name;
+  document.getElementById('mDs').innerText=item.desc||'';
+  document.getElementById('mOl').innerText=fRp(item.origPrice);
+  document.getElementById('mOl').style.display='inline';
+  document.getElementById('mPc').innerText=fRp(item.price);
+  document.getElementById('mDp').innerText=disc>0?'-'+disc+'%':'';
+  document.getElementById('mDp').style.display=disc>0?'inline':'none';
+  document.getElementById('mImg').src=item.img||PH;
+  document.getElementById('mBtnPc').innerText=fRp(item.price);
+  document.getElementById('mTotPc').innerText=fRp(item.price);
+  document.getElementById('mQty').innerText='1';
+
+  // Show/hide options based on category type
+  document.getElementById('optSec').style.display=isBev?'block':'none';
+  document.getElementById('tempGrp').style.display=(isBev&&gNames[selCat]!=='Kenangan Frappe')?'block':'none';
+  document.getElementById('upHint').style.display='flex';
+
+  document.getElementById('modal').classList.add('sh');
+}
+
+function clM(){document.getElementById('modal').classList.remove('sh')}
+
+function mQty(d){qty=Math.max(1,qty+d);document.getElementById('mQty').innerText=qty;uMPrice()}
+
+function uMPrice(){
+  var item=cats[selCat][selI],isBev=isBevCat(selCat);
+  var isL=isBev&&selO.size.indexOf("Large")>=0;
+  var unit=isL?item.price+LUP:item.price;
+  document.getElementById('mBtnPc').innerText=fRp(unit*qty);
+  document.getElementById('mTotPc').innerText=fRp(unit*qty);
+}
+
+function sOpt(btn,type){
+  btn.parentElement.querySelectorAll('.ob').forEach(function(b){b.classList.remove('on')});
+  btn.classList.add('on');
+  selO[type]=btn.innerText.replace(/[🔥🧊🍬📐💡＋]/g,'').trim();
+
+  if(type==='size'){
+    var isL=btn.innerText.indexOf("Large")>=0;
+    document.getElementById('upHint').style.display=isL?'none':'flex';
+    var item=cats[selCat][selI],disc=dPct(item);
+    var unit=isL?item.price+LUP:item.price;
+    var oldU=isL?item.origPrice+LUP:item.origPrice;
+    document.getElementById('mPc').innerText=fRp(unit);
+    document.getElementById('mOl').innerText=fRp(oldU);
+    document.getElementById('mOl').style.display='inline';
+    var dp=disc>0?disc:Math.round((1-unit/oldU)*100);
+    document.getElementById('mDp').innerText=dp>0?'-'+dp+'%':'';
+    document.getElementById('mDp').style.display=dp>0?'inline':'none';
+    uMPrice();
+  }
+}
+
+function addProd(){
+  var item=cats[selCat][selI];if(!item.orders)item.orders=[];
+  var isBev=isBevCat(selCat);
+  for(var i=0;i<qty;i++){
+    var price=item.price,old=item.origPrice;
+    if(isBev&&selO.size.indexOf("Large")>=0){price+=LUP;old+=LUP}
+    item.orders.push({size:isBev?selO.size:"-",temp:isBev?selO.temp:"-",sweet:isBev?selO.sweet:"-",ice:isBev?selO.ice:"-",price:price,old:old});
+  }
+  uBar();clM();sToast("Ditambahkan ✓");
+}
+
+// ===== CART BAR =====
+function uBar(){
+  var cnt=0,total=0;
+  for(var c in cats)cats[c].forEach(function(i){if(i.orders)i.orders.forEach(function(o){cnt++;total+=o.price})});
+  var bar=document.getElementById('cartBar'),bdg=document.getElementById('crtBdg');
+  if(!cnt){bar.style.display='none';bdg.classList.remove('on');return}
+  bar.style.display='block';bdg.classList.add('on');bdg.innerText=cnt;
+  document.querySelector('.cb-nf').innerText=cnt+' item • '+fRp(total);
+}
+
+function sToast(msg){
+  var t=document.createElement('div');t.className='tst';t.innerText=msg;
+  document.body.appendChild(t);setTimeout(function(){t.classList.add('sh')},10);
+  setTimeout(function(){t.classList.remove('sh');setTimeout(function(){t.remove()},300)},1500);
+}
+
+// ===== CART PAGE =====
+function openCart(){
+  document.getElementById('menuPage').style.display='none';
+  document.getElementById('cartPage').style.display='block';
+  document.getElementById('cartBar').style.display='none';
+  document.getElementById('topHdr').style.display='none';
+  document.getElementById('schWrap').style.display='none';
+  document.getElementById('catSec').style.display='none';
+  document.getElementById('vwBar').style.display='none';
+  rCart();
+}
+
+function backMenu(){
+  document.getElementById('menuPage').style.display='block';
+  document.getElementById('cartPage').style.display='none';
+  document.getElementById('topHdr').style.display='';
+  document.getElementById('schWrap').style.display='';
+  document.getElementById('catSec').style.display='';
+  document.getElementById('vwBar').style.display='';
+  uBar();
+}
+
+function rCart(){
+  var total=0,save=0,cnt=0;
+  var ci=document.getElementById('cartItems');ci.innerHTML='';
+  var grp={};
+
+  for(var c in cats)cats[c].forEach(function(item){
+    if(item.orders)item.orders.forEach(function(o){
+      var k=item.name+'|'+o.temp+'|'+o.size+'|'+o.sweet+'|'+o.ice;
+      if(!grp[k])grp[k]={name:item.name,img:item.img,temp:o.temp,size:o.size,sweet:o.sweet,ice:o.ice,price:o.price,old:o.old,qty:1,isNew:item.isNew};
+      else grp[k].qty++;
+      total+=o.price;save+=o.old-o.price;
+    });
+  });
+
+  var keys=Object.keys(grp);
+  keys.forEach(function(k){
+    var o=grp[k];cnt+=o.qty;
+    var opts=[o.temp,o.size,o.sweet,o.ice].filter(function(v){return v&&v!=='-'}).join(' • ');
+    var sv=(o.old-o.price)*o.qty,hd=o.old>o.price;
+
+    ci.innerHTML+='<div class="cc"><img class="cc-img" src="'+o.img+'" onerror="this.src=\''+PH+'\'"><div class="cc-nf"><div class="cc-nm">'+o.name+'</div>'+(opts?'<div class="cc-op">'+opts+'</div>':'')+'<div>'+(sv>0?'<span class="cc-tg sv">HEMAT '+fRp(sv)+'</span>':'')+(o.isNew?'<span class="cc-tg nw">NEW</span>':'')+'</div><div class="cc-pr">'+(hd?'<span class="cc-ol">'+fRp(o.old*o.qty)+'</span>':'')+'<span class="cc-pc">'+fRp(o.price*o.qty)+'</span></div><div class="cc-ac"><button class="cc-dl" onclick="'+(o.qty>1?'mSame(\''+esc(o.name)+'\',\''+o.temp+'\',\''+o.size+'\',\''+o.sweet+'\',\''+o.ice+'\')':'rmGrp(\''+esc(o.name)+'\',\''+o.temp+'\',\''+o.size+'\',\''+o.sweet+'\',\''+o.ice+'\')')+'">'+(o.qty>1?'−':'🗑')+'</button><div class="cc-qw"><span class="cc-qn">'+o.qty+'</span><button class="cc-qb pl" onclick="aSame(\''+esc(o.name)+'\',\''+o.temp+'\',\''+o.size+'\',\''+o.sweet+'\',\''+o.ice+'\')">+</button></div></div></div></div>';
+  });
+
+  document.getElementById('prTot').innerText=fRp(total);
+  document.getElementById('fnTot').innerText=fRp(total);
+  document.getElementById('svTot').innerText=fRp(Math.max(0,save));
+  document.getElementById('emptyCt').style.display=cnt?'none':'block';
+  ci.style.display=cnt?'block':'none';
+  document.getElementById('sumBox').style.display=cnt?'block':'none';
+}
+
+function fItem(n){for(var c in cats)for(var i=0;i<cats[c].length;i++)if(cats[c][i].name===n)return cats[c][i];return null}
+function aSame(n,t,s,sw,ic){var i=fItem(n);if(i&&i.orders)i.orders.push({temp:t,size:s,sweet:sw,ice:ic,price:i.price,old:i.origPrice});rCart();uBar()}
+function rmGrp(n,t,s,sw,ic){var i=fItem(n);if(i&&i.orders){i.orders=i.orders.filter(function(o){return!(o.temp===t&&o.size===s&&o.sweet===sw&&o.ice===ic)});if(!i.orders.length)delete i.orders}rCart();uBar()}
+function mSame(n,t,s,sw,ic){var i=fItem(n);if(i&&i.orders){var idx=-1;for(var j=0;j<i.orders.length;j++){if(i.orders[j].temp===t&&i.orders[j].size===s&&i.orders[j].sweet===sw&&i.orders[j].ice===ic){idx=j;break}}if(idx>=0)i.orders.splice(idx,1);if(!i.orders.length)delete i.orders}rCart();uBar()}
+
+// ===== WA =====
+function orderWA(){
+  var nm=document.getElementById('cName').value.trim();
+  var lc=document.getElementById('cLoc').value.trim();
+  var tm=document.getElementById('cTime').value;
+  var nt=document.getElementById('cNote').value.trim();
+  if(!nm||!lc||!tm){shAl("Mohon lengkapi Nama, Outlet, dan Jam Pickup");return}
+  var msg="Halo kak! Saya mau order Kopi Kenangan:%0A%0A",total=0,has=false;
+  for(var c in cats)cats[c].forEach(function(item){
+    if(item.orders)item.orders.forEach(function(o){
+      var opts=[o.temp,o.size,o.sweet,o.ice].filter(function(v){return v&&v!=='-'}).join(', ');
+      msg+='• '+item.name+(opts?' ('+opts+')':'')+'%0A';total+=o.price;has=true;
+    });
+  });
+  if(!has){shAl("Keranjang masih kosong!");return}
+  msg+='%0A👤 Nama: '+nm+'%0A🕒 Pickup: '+tm+'%0A📍 Outlet: '+lc;
+  if(nt)msg+='%0A📝 Catatan: '+nt;
+  msg+='%0A%0A💰 *Total: '+fRp(total)+'*';
+  window.open('https://wa.me/'+waNum+'?text='+msg);
+}
+
+// ===== ALERT =====
+function shAl(m){document.getElementById('alTxt').innerText=m;document.getElementById('alBox').classList.add('sh')}
+function clAl(){document.getElementById('alBox').classList.remove('sh')}
+
+// ===== SEARCH =====
+function doSearch(){
+  var kw=document.getElementById('schIn').value.toLowerCase(),m=document.getElementById('menuGrid');
+  if(!kw){rMenu();return}
+  m.innerHTML='';
+  for(var c in cats)cats[c].forEach(function(item,i){
+    if(item.name.toLowerCase().indexOf(kw)>=0||(item.desc&&item.desc.toLowerCase().indexOf(kw)>=0)){
+      var disc=dPct(item);
+      var d=document.createElement('div');d.className='pc';
+      d.onclick=(function(cat,idx){return function(){var p=curCat;curCat=cat;openM(idx);curCat=p}})(c,i);
+      var bdgs='';
+      if(disc>0)bdgs+='<div class="bd dc">-'+disc+'%</div>';
+      if(item.isNew)bdgs+='<div class="bd nw">NEW</div>';
+      d.innerHTML='<div class="pc-img"><img src="'+item.img+'" alt="'+item.name+'" onerror="this.src=\''+PH+'\'"><div class="pc-bdgs">'+bdgs+'</div></div><div class="pc-body"><div class="pc-nm">'+item.name+'</div><div style="font-size:9px;color:#aaa;margin-top:2px">'+cLabel(c)+'</div>'+(item.desc?'<div class="pc-ds">'+item.desc+'</div>':'')+'<div class="pc-pr"><span class="pc-ol">'+fRp(item.origPrice)+'</span><span class="pc-pc">'+fRp(item.price)+'</span></div><button class="pc-add" onclick="event.stopPropagation();hAddSch(\''+c+'\','+i+')">＋ Tambah</button></div>';
+      m.appendChild(d);
+    }
+  });
+}
+
+function hAddSch(c,i){var p=curCat;curCat=c;openM(i);curCat=p}
+
+// ===== VIEWING =====
+setInterval(function(){
+  var r=Math.floor(Math.random()*18)+5;
+  document.getElementById('vwTxt').innerText=r+' orang lagi lihat menu ini';
+  document.getElementById('vwChip').innerText='👀 '+r;
+},4000);
+
+// ===== MODAL BACKDROP =====
+document.getElementById('modal').onclick=function(e){if(e.target===this)clM()};
+
+// ===== START =====
+rCats();
+rMenu();
+</script>
+</body>
+</html>
