@@ -624,11 +624,16 @@ function applyData(db){
 }
 
 function syncProducts(){
-  fetch('products.json',{cache:'no-store'})
+  fetch('products.json?ts='+Date.now(),{cache:'no-store'})
     .then(function(r){if(!r.ok)throw new Error('load failed');return r.json()})
     .then(function(db){applyData(db)})
     .catch(function(){
-      document.body.innerHTML='<div style=\"padding:40px;text-align:center\"><h2>Gagal memuat products.json</h2><p>Pastikan file products.json tersedia dan valid.</p></div>';
+      cats={};gNames={};order=[];icons={};modalGn=[];curCat='';
+      var catEl=document.getElementById('catSc');if(catEl)catEl.innerHTML='';
+      var menuEl=document.getElementById('menuGrid');
+      if(menuEl)menuEl.innerHTML='<div class="emp"><h3>Produk tidak tersedia</h3><p>File products.json tidak ditemukan atau invalid.</p></div>';
+      var bar=document.getElementById('cartBar');if(bar)bar.style.display='none';
+      var bdg=document.getElementById('crtBdg');if(bdg)bdg.classList.remove('on');
     });
 }
 syncProducts();
