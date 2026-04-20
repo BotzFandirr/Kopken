@@ -21,7 +21,21 @@
     th,td{padding:8px;border-bottom:1px solid #f6e4ef;text-align:left;vertical-align:top}
     .row-btn{padding:7px 10px;font-size:12px}
     .muted{opacity:.7;font-size:12px}
-    @media(max-width:900px){.grid{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}.hide-m{display:none}}
+    @media(max-width:1024px){.grid{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}}
+    @media(max-width:768px){
+      .wrap{padding:14px}
+      .hdr{align-items:flex-start}
+      .hdr > div{width:100%}
+      .hdr button{flex:1}
+      .grid{grid-template-columns:1fr}
+      .card{padding:12px}
+      table,thead,tbody,tr,th,td{display:block;width:100%}
+      thead{display:none}
+      tr{border:1px solid #f6e4ef;border-radius:12px;padding:10px;margin-bottom:10px;background:#fff}
+      td{border:none;padding:6px 0}
+      td::before{content:attr(data-label);display:block;font-size:11px;font-weight:700;opacity:.7;margin-bottom:4px}
+      .hide-m{display:none}
+    }
   </style>
 </head>
 <body>
@@ -112,18 +126,18 @@ function renderTable(){
     cat.items.forEach((it,idx)=>rows.push({cat,idx,it}));
   });
   document.getElementById('tb').innerHTML=rows.map(r=>`<tr>
-    <td>${r.it.n}</td>
-    <td>
+    <td data-label="Produk">${r.it.n}</td>
+    <td data-label="Gambar (URL)">
       <div style="display:flex;align-items:center;gap:8px;min-width:240px">
         <img src="${r.it.i||''}" alt="${r.it.n}" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3075/3075977.png'" style="width:36px;height:36px;object-fit:cover;border-radius:8px;border:1px solid #f5d0e5;flex:0 0 auto">
         <input value="${r.it.i||''}" onchange="updField('${r.cat.gc}',${r.idx},this.value,'i')" placeholder="https://..." />
       </div>
     </td>
-    <td class="hide-m">${r.cat.gn}</td>
-    <td><input type="number" value="${r.it.p}" onchange="updPrice('${r.cat.gc}',${r.idx},this.value,'p')"></td>
-    <td><input type="number" value="${r.it.op}" onchange="updPrice('${r.cat.gc}',${r.idx},this.value,'op')"></td>
-    <td><input type="checkbox" ${r.it.nw?'checked':''} onchange="updNew('${r.cat.gc}',${r.idx},this.checked)"></td>
-    <td><button class="row-btn alt" onclick="delProd('${r.cat.gc}',${r.idx})">Hapus</button></td>
+    <td class="hide-m" data-label="Kategori">${r.cat.gn}</td>
+    <td data-label="Harga"><input type="number" value="${r.it.p}" onchange="updPrice('${r.cat.gc}',${r.idx},this.value,'p')"></td>
+    <td data-label="Harga Coret"><input type="number" value="${r.it.op}" onchange="updPrice('${r.cat.gc}',${r.idx},this.value,'op')"></td>
+    <td data-label="NEW"><input type="checkbox" ${r.it.nw?'checked':''} onchange="updNew('${r.cat.gc}',${r.idx},this.checked)"></td>
+    <td data-label="Aksi"><button class="row-btn alt" onclick="delProd('${r.cat.gc}',${r.idx})">Hapus</button></td>
   </tr>`).join('');
 }
 
