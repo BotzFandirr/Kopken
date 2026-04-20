@@ -72,6 +72,7 @@
 
 <script>
 let db=null;
+let jsonFileHandle=null;
 
 function normalizeDb(src){
   const out=JSON.parse(JSON.stringify(src||{}));
@@ -91,13 +92,8 @@ function normalizeDb(src){
 }
 
 async function loadDb(){
-  const saved=localStorage.getItem('kk_products_db');
-  if(saved){
-    db=normalizeDb(JSON.parse(saved));
-  }else{
-    const res=await fetch('products.json',{cache:'no-store'});
-    db=normalizeDb(await res.json());
-  }
+  const res=await fetch('products.json',{cache:'no-store'});
+  db=normalizeDb(await res.json());
   fillCats();
   renderTable();
 }
@@ -166,14 +162,35 @@ function delProd(gc,idx){
 async function saveDb(){
   db=normalizeDb(db);
   const text=JSON.stringify(db,null,2);
-  localStorage.setItem('kk_products_db',text);
+  if(jsonFileHandle){
+    const writable=await jsonFileHandle.createWritable();
+    await writable.write(text);
+    await writable.close();
+    alert('Berhasil disimpan langsung ke file products.json yang dipilih');
+    return;
+  }
+  if(window.showSaveFilePicker){
+    try{
+      jsonFileHandle=await window.showSaveFilePicker({
+        suggestedName:'products.json',
+        types:[{description:'JSON Files',accept:{'application/json':['.json']}}]
+      });
+      const writable=await jsonFileHandle.createWritable();
+      await writable.write(text);
+      await writable.close();
+      alert('Berhasil disimpan ke file JSON');
+      return;
+    }catch(err){
+      if(err&&err.name==='AbortError')return;
+    }
+  }
   const blob=new Blob([text],{type:'application/json'});
   const a=document.createElement('a');
   a.href=URL.createObjectURL(blob);
   a.download='products.json';
   a.click();
   URL.revokeObjectURL(a.href);
-  alert('Data tersimpan di browser & file products.json berhasil diunduh');
+  alert('File products.json berhasil diunduh (fallback browser tanpa akses tulis langsung).');
 }
 
 function importDb(e){
@@ -185,7 +202,6 @@ function importDb(e){
       const parsed=JSON.parse(String(rd.result||'{}'));
       if(!Array.isArray(parsed.raw)) throw new Error('Format JSON tidak valid');
       db=normalizeDb(parsed);
-      localStorage.setItem('kk_products_db',JSON.stringify(db));
       fillCats();
       renderTable();
       alert('Import JSON berhasil');
