@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Produk</title>
+  <style>
+    :root{--pri:#ec4899;--pri-d:#be185d;--bg:#fff7fc;--card:#fff;--line:#f5d0e5;--tx:#2b1330}
+    *{box-sizing:border-box;font-family:Inter,system-ui,sans-serif}
+    body{margin:0;background:linear-gradient(180deg,#ffe4f1,#fff7fc);color:var(--tx)}
+    .wrap{max-width:1080px;margin:0 auto;padding:20px}
+    .hdr{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+    h1{font-size:24px;margin:0}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:0 10px 22px rgba(190,24,93,.09);margin-top:14px}
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    input,select,textarea,button{width:100%;padding:10px;border-radius:10px;border:1px solid #e8d5e2;font:inherit}
+    button{cursor:pointer;background:linear-gradient(120deg,var(--pri),#f472b6);color:#fff;border:none;font-weight:700}
+    button.alt{background:#fff;color:var(--pri);border:1px solid var(--pri)}
+    table{width:100%;border-collapse:collapse;font-size:13px}
+    th,td{padding:8px;border-bottom:1px solid #f6e4ef;text-align:left;vertical-align:top}
+    .row-btn{padding:7px 10px;font-size:12px}
+    .muted{opacity:.7;font-size:12px}
+    @media(max-width:1024px){.grid{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}}
+    @media(max-width:768px){
+      .wrap{padding:14px}
+      .hdr{align-items:flex-start}
+      .hdr > div{width:100%}
+      .hdr button{flex:1}
+      .grid{grid-template-columns:1fr}
+      .card{padding:12px}
+      table,thead,tbody,tr,th,td{display:block;width:100%}
+      thead{display:none}
+      tr{border:1px solid #f6e4ef;border-radius:12px;padding:10px;margin-bottom:10px;background:#fff}
+      td{border:none;padding:6px 0}
+      td::before{content:attr(data-label);display:block;font-size:11px;font-weight:700;opacity:.7;margin-bottom:4px}
+      .hide-m{display:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hdr">
+      <h1>⚙️ Admin Produk</h1>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="alt" style="width:auto;padding:10px 14px" onclick="location.href='index.html'">← Kembali</button>
+        <button style="width:auto;padding:10px 14px" onclick="saveDb()">Simpan JSON</button>
+        <button class="alt" style="width:auto;padding:10px 14px" onclick="document.getElementById('fileIn').click()">Import JSON</button>
+        <input id="fileIn" type="file" accept="application/json" style="display:none" onchange="importDb(event)" />
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="muted">Tambah produk baru</div>
+      <div class="grid" style="margin-top:8px">
+        <input id="fName" placeholder="Nama produk" />
+        <input id="fImg" placeholder="URL gambar" />
+        <input id="fPrice" type="number" placeholder="Harga jual" />
+        <input id="fOrig" type="number" placeholder="Harga coret" />
+      </div>
+      <div class="grid2" style="margin-top:8px">
+        <select id="fCat"></select>
+        <input id="fDesc" placeholder="Deskripsi (opsional)" />
+      </div>
+      <div style="margin-top:8px;display:flex;gap:8px;align-items:center">
+        <label><input id="fNew" type="checkbox" style="width:auto" /> Tandai NEW</label>
+        <button style="max-width:220px" onclick="addProduct()">+ Tambahkan Produk</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:center">
+        <div class="muted">Kelola harga produk per kategori</div>
+        <select id="filterCat" style="max-width:260px" onchange="renderTable()"></select>
+      </div>
+      <div style="overflow:auto;margin-top:10px">
+        <table>
+          <thead>
+            <tr><th>Produk</th><th>Gambar (URL)</th><th class="hide-m">Kategori</th><th>Harga</th><th>Harga Coret</th><th>NEW</th><th>Aksi</th></tr>
+          </thead>
+          <tbody id="tb"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+<script>
+let db=null;
+let jsonFileHandle=null;
+
+function normalizeDb(src){
+  const out=JSON.parse(JSON.stringify(src||{}));
+  out.raw=Array.isArray(out.raw)?out.raw:[];
+  const seen=new Set();
+  out.raw.forEach(cat=>{
+    cat.items=Array.isArray(cat.items)?cat.items:[];
+    cat.items=cat.items.filter(it=>{
+      const key=String((it&&it.n)||'').trim().toLowerCase();
+      if(!key)return false;
+      if(seen.has(key))return false;
+      seen.add(key);
+      return true;
+    });
+  });
+  return out;
+}
+
+async function loadDb(){
+  const res=await fetch('products.json',{cache:'no-store'});
+  db=normalizeDb(await res.json());
+  fillCats();
+  renderTable();
+}
+
+function fillCats(){
+  const opts=db.raw.map(c=>`<option value="${c.gc}">${c.gn}</option>`).join('');
+  document.getElementById('fCat').innerHTML=opts;
+  document.getElementById('filterCat').innerHTML='<option value="">Semua Kategori</option>'+opts;
+}
+
+function renderTable(){
+  const f=document.getElementById('filterCat').value;
+  const rows=[];
+  db.raw.forEach(cat=>{
+    if(f&&cat.gc!==f)return;
+    cat.items.forEach((it,idx)=>rows.push({cat,idx,it}));
+  });
+  document.getElementById('tb').innerHTML=rows.map(r=>`<tr>
+    <td data-label="Produk">${r.it.n}</td>
+    <td data-label="Gambar (URL)">
+      <div style="display:flex;align-items:center;gap:8px;min-width:240px">
+        <img src="${r.it.i||''}" alt="${r.it.n}" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3075/3075977.png'" style="width:36px;height:36px;object-fit:cover;border-radius:8px;border:1px solid #f5d0e5;flex:0 0 auto">
+        <input value="${r.it.i||''}" onchange="updField('${r.cat.gc}',${r.idx},this.value,'i')" placeholder="https://..." />
+      </div>
+    </td>
+    <td class="hide-m" data-label="Kategori">${r.cat.gn}</td>
+    <td data-label="Harga"><input type="number" value="${r.it.p}" onchange="updPrice('${r.cat.gc}',${r.idx},this.value,'p')"></td>
+    <td data-label="Harga Coret"><input type="number" value="${r.it.op}" onchange="updPrice('${r.cat.gc}',${r.idx},this.value,'op')"></td>
+    <td data-label="NEW"><input type="checkbox" ${r.it.nw?'checked':''} onchange="updNew('${r.cat.gc}',${r.idx},this.checked)"></td>
+    <td data-label="Aksi"><button class="row-btn alt" onclick="delProd('${r.cat.gc}',${r.idx})">Hapus</button></td>
+  </tr>`).join('');
+}
+
+function findCat(gc){return db.raw.find(c=>c.gc===gc)}
+function updPrice(gc,idx,val,key){const c=findCat(gc);if(!c)return;c.items[idx][key]=Number(val)||0}
+function updNew(gc,idx,val){const c=findCat(gc);if(!c)return;if(val)c.items[idx].nw=1;else delete c.items[idx].nw}
+function updField(gc,idx,val,key){const c=findCat(gc);if(!c)return;c.items[idx][key]=String(val||'').trim()}
+
+function addProduct(){
+  const gc=document.getElementById('fCat').value;
+  const c=findCat(gc); if(!c)return;
+  const n=document.getElementById('fName').value.trim();
+  const i=document.getElementById('fImg').value.trim();
+  const p=Number(document.getElementById('fPrice').value||0);
+  const op=Number(document.getElementById('fOrig').value||p);
+  const d=document.getElementById('fDesc').value.trim();
+  const nw=document.getElementById('fNew').checked;
+  if(!n||!i||!p){alert('Nama, gambar, dan harga wajib diisi');return}
+  const key=n.toLowerCase();
+  const hasDup=db.raw.some(x=>x.items.some(it=>String(it.n||'').trim().toLowerCase()===key));
+  if(hasDup){alert('Nama produk sudah ada. Gunakan nama yang berbeda ya.');return}
+  const item={n,i,p,op}; if(d)item.d=d; if(nw)item.nw=1;
+  c.items.unshift(item);
+  ['fName','fImg','fPrice','fOrig','fDesc'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('fNew').checked=false;
+  renderTable();
+}
+
+function delProd(gc,idx){
+  if(!confirm('Hapus produk ini?'))return;
+  const c=findCat(gc);if(!c)return;
+  c.items.splice(idx,1);
+  renderTable();
+}
+
+async function saveDb(){
+  db=normalizeDb(db);
+  const text=JSON.stringify(db,null,2);
+  if(jsonFileHandle){
+    const writable=await jsonFileHandle.createWritable();
+    await writable.write(text);
+    await writable.close();
+    alert('Berhasil disimpan langsung ke file products.json yang dipilih');
+    return;
+  }
+  if(window.showSaveFilePicker){
+    try{
+      jsonFileHandle=await window.showSaveFilePicker({
+        suggestedName:'products.json',
+        types:[{description:'JSON Files',accept:{'application/json':['.json']}}]
+      });
+      const writable=await jsonFileHandle.createWritable();
+      await writable.write(text);
+      await writable.close();
+      alert('Berhasil disimpan ke file JSON');
+      return;
+    }catch(err){
+      if(err&&err.name==='AbortError')return;
+    }
+  }
+  const blob=new Blob([text],{type:'application/json'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='products.json';
+  a.click();
+  URL.revokeObjectURL(a.href);
+  alert('File products.json berhasil diunduh (fallback browser tanpa akses tulis langsung).');
+}
+
+function importDb(e){
+  const f=e.target.files&&e.target.files[0];
+  if(!f)return;
+  const rd=new FileReader();
+  rd.onload=function(){
+    try{
+      const parsed=JSON.parse(String(rd.result||'{}'));
+      if(!Array.isArray(parsed.raw)) throw new Error('Format JSON tidak valid');
+      db=normalizeDb(parsed);
+      fillCats();
+      renderTable();
+      alert('Import JSON berhasil');
+    }catch(err){
+      alert(err.message);
+    }finally{
+      e.target.value='';
+    }
+  };
+  rd.readAsText(f);
+}
+
+loadDb().catch(()=>alert('Gagal load products.json'));
+</script>
+</body>
+</html>
