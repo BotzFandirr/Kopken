@@ -608,15 +608,22 @@ document.getElementById('modal').onclick=function(e){if(e.target===this)clM()};
 
 // ===== START =====
 function applyData(db){
+  var prevOrders={};
+  for(var c in cats)(cats[c]||[]).forEach(function(it){
+    if(it.orders&&it.orders.length)prevOrders[it.name]=it.orders.slice();
+  });
   var D=buildData(db);
   cats=D.cats;gNames=D.gNames;order=D.order;icons=D.icons;modalGn=D.modalGn;
+  for(var c2 in cats)(cats[c2]||[]).forEach(function(it2){
+    if(prevOrders[it2.name])it2.orders=prevOrders[it2.name];
+  });
   curCat=order[2]||order[0];
   rCats();
   rMenu();
   uBar();
 }
 
-function initApp(){
+function syncProducts(){
   fetch('products.json',{cache:'no-store'})
     .then(function(r){if(!r.ok)throw new Error('load failed');return r.json()})
     .then(function(db){applyData(db)})
@@ -624,7 +631,11 @@ function initApp(){
       document.body.innerHTML='<div style=\"padding:40px;text-align:center\"><h2>Gagal memuat products.json</h2><p>Pastikan file products.json tersedia dan valid.</p></div>';
     });
 }
-initApp();
+syncProducts();
+setInterval(function(){
+  if(document.getElementById('cartPage').style.display==='block')return;
+  syncProducts();
+},15000);
 </script>
 </body>
 </html>

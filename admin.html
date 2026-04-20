@@ -43,6 +43,7 @@
     <div class="hdr">
       <h1>⚙️ Admin Produk</h1>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="alt" style="width:auto;padding:10px 14px" onclick="bindJsonFile()">Hubungkan products.json</button>
         <button class="alt" style="width:auto;padding:10px 14px" onclick="location.href='index.html'">← Kembali</button>
         <button style="width:auto;padding:10px 14px" onclick="saveDb()">Simpan JSON</button>
         <button class="alt" style="width:auto;padding:10px 14px" onclick="document.getElementById('fileIn').click()">Import JSON</button>
@@ -112,6 +113,31 @@ async function loadDb(){
   renderTable();
 }
 
+async function bindJsonFile(){
+  if(!window.showOpenFilePicker){
+    alert('Browser tidak mendukung akses tulis langsung file JSON. Gunakan browser Chromium terbaru.');
+    return;
+  }
+  try{
+    const [handle]=await window.showOpenFilePicker({
+      multiple:false,
+      types:[{description:'JSON Files',accept:{'application/json':['.json']}}]
+    });
+    if(!handle)return;
+    jsonFileHandle=handle;
+    const file=await jsonFileHandle.getFile();
+    const parsed=JSON.parse(await file.text());
+    if(!Array.isArray(parsed.raw))throw new Error('File JSON tidak valid');
+    db=normalizeDb(parsed);
+    fillCats();
+    renderTable();
+    alert('products.json berhasil dihubungkan.');
+  }catch(err){
+    if(err&&err.name==='AbortError')return;
+    alert(err.message||'Gagal membuka products.json');
+  }
+}
+
 function fillCats(){
   const opts=db.raw.map(c=>`<option value="${c.gc}">${c.gn}</option>`).join('');
   document.getElementById('fCat').innerHTML=opts;
@@ -176,49 +202,29 @@ function delProd(gc,idx){
 async function saveDb(){
   db=normalizeDb(db);
   const text=JSON.stringify(db,null,2);
-  if(jsonFileHandle){
-    const writable=await jsonFileHandle.createWritable();
-    await writable.write(text);
-    await writable.close();
-    alert('Berhasil disimpan langsung ke file products.json yang dipilih');
+  if(!jsonFileHandle){
+    alert('Klik "Hubungkan products.json" dulu supaya simpan langsung ke file JSON.');
     return;
   }
-  if(window.showSaveFilePicker){
-    try{
-      jsonFileHandle=await window.showSaveFilePicker({
-        suggestedName:'products.json',
-        types:[{description:'JSON Files',accept:{'application/json':['.json']}}]
-      });
-      const writable=await jsonFileHandle.createWritable();
-      await writable.write(text);
-      await writable.close();
-      alert('Berhasil disimpan ke file JSON');
-      return;
-    }catch(err){
-      if(err&&err.name==='AbortError')return;
-    }
-  }
-  const blob=new Blob([text],{type:'application/json'});
-  const a=document.createElement('a');
-  a.href=URL.createObjectURL(blob);
-  a.download='products.json';
-  a.click();
-  URL.revokeObjectURL(a.href);
-  alert('File products.json berhasil diunduh (fallback browser tanpa akses tulis langsung).');
+  const writable=await jsonFileHandle.createWritable();
+  await writable.write(text);
+  await writable.close();
+  alert('Berhasil disimpan langsung ke products.json');
 }
 
 function importDb(e){
   const f=e.target.files&&e.target.files[0];
   if(!f)return;
   const rd=new FileReader();
-  rd.onload=function(){
+  rd.onload=async function(){
     try{
       const parsed=JSON.parse(String(rd.result||'{}'));
       if(!Array.isArray(parsed.raw)) throw new Error('Format JSON tidak valid');
       db=normalizeDb(parsed);
+      await saveDb();
       fillCats();
       renderTable();
-      alert('Import JSON berhasil');
+      alert('Import JSON berhasil dan langsung disimpan ke products.json');
     }catch(err){
       alert(err.message);
     }finally{
