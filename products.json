@@ -193,26 +193,6 @@
       "gc": "Menu0002",
       "items": [
         {
-          "n": "OG Aren Speculoos Latte",
-          "nw": 1,
-          "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/2fe841e8-1b7a-47ad-a52d-34902f5fc564?",
-          "op": 20000,
-          "p": 20000
-        },
-        {
-          "n": "Dua Shot OG Aren",
-          "nw": 1,
-          "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/a9ae7cf2-e7e6-4508-a3d4-03a929d2537c?",
-          "op": 24000,
-          "p": 24000
-        },
-        {
-          "n": "Mocha Caramel",
-          "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/2c86e33d-72e9-432f-abdd-e2019b4fda7a?",
-          "op": 25000,
-          "p": 25000
-        },
-        {
           "n": "Tiramisu Latte",
           "i": "https://cdn.kopikenangan.com/public/cb4aec85-075e-1baf-0c74-ba1e28f9a64b",
           "op": 19000,
@@ -363,19 +343,6 @@
       "gc": "Menu0003",
       "items": [
         {
-          "n": "OG Aren Milky Speculoos",
-          "nw": 1,
-          "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/cc9f17b7-deb3-463e-ba9a-e1ba98ca3767?",
-          "op": 22000,
-          "p": 22000
-        },
-        {
-          "n": "Choco Caramel",
-          "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/6ea1cf28-bb9f-40f7-9b6d-94b24f1da329?",
-          "op": 18000,
-          "p": 18000
-        },
-        {
           "n": "Toffee Nut Choco Macchiato",
           "i": "https://cdn.kopikenangan.com/public/ffc634eb-9bf9-6258-c541-b2407581cd4c",
           "op": 21000,
@@ -448,18 +415,6 @@
       "gc": "OatsideSeries",
       "items": [
         {
-          "n": "Oatside Kopi Kenangan Mantan",
-          "i": "https://cdn.kopikenangan.com/public/c651acb8-3df7-7b75-45e2-f207926d863a",
-          "op": 22000,
-          "p": 22000
-        },
-        {
-          "n": "Oatside Latte",
-          "i": "https://cdn.kopikenangan.com/public/4890326b-b307-b2f8-a6f1-1a6ae4b15804",
-          "op": 24000,
-          "p": 24000
-        },
-        {
           "n": "Oatside Matcha Latte",
           "i": "https://cdn.kopikenangan.com/public/d048cf0f-ed3f-8b76-26b0-75f651fe5dc7",
           "op": 24000,
@@ -471,12 +426,6 @@
       "gn": "Kenangan Frappe",
       "gc": "FREEZYSERIES",
       "items": [
-        {
-          "n": "Choco Caramel Frappe",
-          "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/c96dd180-921d-4b2b-8967-97bc60af7f8d?",
-          "op": 27000,
-          "p": 27000
-        },
         {
           "n": "Tiramisu Frappe",
           "i": "https://cdn.kopikenangan.com/public/888be148-968b-e625-9f7c-e8a823563954",
@@ -519,45 +468,6 @@
       "gn": "Chef Martin Praja's: Signature Bake",
       "gc": "APPMARTINPRAJAFOOD",
       "items": [
-        {
-          "n": "Canele Aren",
-          "nw": 1,
-          "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/2902fb9a-1dd1-43c5-a012-50d12343d20a?",
-          "op": 16000,
-          "p": 16000
-        },
-        {
-          "n": "Choco Muffin",
-          "nw": 1,
-          "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/ad2888b6-7984-4af8-b51f-fe133c3358f3?",
-          "op": 16000,
-          "p": 16000
-        },
-        {
-          "n": "Blueberry Muffin",
-          "nw": 1,
-          "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/700109f4-1197-4092-af61-6b44c9b9c6c5?",
-          "op": 16000,
-          "p": 16000
-        },
-        {
-          "n": "Vanilla Choux Puff",
-          "i": "https://cdn.kopikenangan.com/ID/release/pub/b/m/3756409f-4b66-45a6-a7d0-79df1781c98f?",
-          "op": 13000,
-          "p": 13000
-        },
-        {
-          "n": "Strawberry Choux Puff",
-          "i": "https://cdn.kopikenangan.com/ID/release/pub/b/m/5d94a75d-6bc7-4cb1-9a1b-714833df3d2a?",
-          "op": 13000,
-          "p": 13000
-        },
-        {
-          "n": "Chocolate Choux Puff",
-          "i": "https://cdn.kopikenangan.com/ID/release/pub/b/m/ca97cd27-d2de-46ba-9a50-df65be642329?",
-          "op": 13000,
-          "p": 13000
-        },
         {
           "n": "Donut Tiramisu",
           "i": "https://cdn.kopikenangan.com/public/89a7830a-0585-c6b0-5071-e1c6bf92ba4b",
@@ -672,13 +582,6 @@
       "gn": "Special Merchandise",
       "gc": "APPMERCHANDISE",
       "items": [
-        {
-          "n": "OG Aren Cup Holder",
-          "nw": 1,
-          "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/187b9572-6155-43ef-a92d-c011a2259ad5?",
-          "op": 17000,
-          "p": 17000
-        },
         {
           "n": "Alpha Cup",
           "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/a23787cd-000f-4821-8da4-ee494547ec77?",

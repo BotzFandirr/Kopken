@@ -453,11 +453,17 @@ function buildData(db){
   var raw=(db&&db.raw&&db.raw.length)?db.raw:defaultRawData();
   var icons=(db&&db.icons)?db.icons:{"Promo & Combo":"🔥","Baru!":"✨","Coffee":"☕","Non Coffee":"🧋","Oatside Series":"🥛","Kenangan Frappe":"🧊","Chef Martin Praja's: Signature Bake":"🥐","Kenangan Toast":"🍞","Food":"🍪","Special Merchandise":"🎁"};
   var modalGn=(db&&db.modalGn&&db.modalGn.length)?db.modalGn:["Coffee","Non Coffee","Oatside Series","Kenangan Frappe"];
-  var cats={},gNames={},order=[];
+  var cats={},gNames={},order=[],seen={};
 
   raw.forEach(function(g){
     var c=g.gc;order.push(c);gNames[c]=g.gn;
-    cats[c]=g.items.map(function(it){
+    var arr=(g.items||[]).filter(function(it){
+      var key=(it&&it.n?String(it.n):'').trim().toLowerCase();
+      if(!key||seen[key])return false;
+      seen[key]=1;
+      return true;
+    });
+    cats[c]=arr.map(function(it){
       return{name:it.n,img:it.i,price:it.p,origPrice:it.op,desc:it.d||'',isNew:!!it.nw,orders:null};
     });
   });
