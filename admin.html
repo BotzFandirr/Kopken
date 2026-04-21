@@ -43,7 +43,6 @@
     <div class="hdr">
       <h1>⚙️ Admin Produk</h1>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <button class="alt" style="width:auto;padding:10px 14px" onclick="bindJsonFile()">Hubungkan products.json</button>
         <button class="alt" style="width:auto;padding:10px 14px" onclick="location.href='index.html'">← Kembali</button>
         <button style="width:auto;padding:10px 14px" onclick="saveDb()">Simpan JSON</button>
         <button class="alt" style="width:auto;padding:10px 14px" onclick="document.getElementById('fileIn').click()">Import JSON</button>
@@ -111,31 +110,6 @@ async function loadDb(){
   db=normalizeDb(await res.json());
   fillCats();
   renderTable();
-}
-
-async function bindJsonFile(){
-  if(!window.showOpenFilePicker){
-    alert('Browser tidak mendukung akses tulis langsung file JSON. Gunakan browser Chromium terbaru.');
-    return;
-  }
-  try{
-    const [handle]=await window.showOpenFilePicker({
-      multiple:false,
-      types:[{description:'JSON Files',accept:{'application/json':['.json']}}]
-    });
-    if(!handle)return;
-    jsonFileHandle=handle;
-    const file=await jsonFileHandle.getFile();
-    const parsed=JSON.parse(await file.text());
-    if(!Array.isArray(parsed.raw))throw new Error('File JSON tidak valid');
-    db=normalizeDb(parsed);
-    fillCats();
-    renderTable();
-    alert('products.json berhasil dihubungkan.');
-  }catch(err){
-    if(err&&err.name==='AbortError')return;
-    alert(err.message||'Gagal membuka products.json');
-  }
 }
 
 function fillCats(){
@@ -217,8 +191,18 @@ async function saveDb(){
     }
   }catch(_){}
 
+  if(!jsonFileHandle && window.showSaveFilePicker){
+    try{
+      jsonFileHandle=await window.showSaveFilePicker({
+        suggestedName:'products.json',
+        types:[{description:'JSON Files',accept:{'application/json':['.json']}}]
+      });
+    }catch(err){
+      if(err&&err.name==='AbortError')return;
+    }
+  }
   if(!jsonFileHandle){
-    alert('Klik "Hubungkan products.json" dulu supaya simpan langsung ke file JSON.');
+    alert('Gagal simpan ke server. Browser ini juga tidak mendukung simpan langsung file JSON.');
     return;
   }
   const writable=await jsonFileHandle.createWritable();
