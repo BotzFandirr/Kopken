@@ -350,7 +350,8 @@ var selO={temp:"Ice",size:"Regular",sweet:"Normal",ice:"Normal"};
 function fRp(n){return'Rp '+n.toLocaleString('id-ID')}
 function dPct(i){return i.origPrice>i.price?Math.round((1-i.price/i.origPrice)*100):0}
 function cLabel(c){return(icons[gNames[c]]||"📦")+' '+gNames[c]}
-function esc(s){return s.replace(/'/g,"\\'")}
+function esc(s){return encodeURIComponent(String(s))}
+function dec(s){try{return decodeURIComponent(String(s))}catch(_){return String(s)}}
 function isBevCat(catCode){return modalGn.indexOf(gNames[catCode])>=0}
 function openAdmin(){window.location.href='admin.html'}
 
@@ -529,7 +530,7 @@ function rCart(){
     var opts=[o.temp,o.size,o.sweet,o.ice].filter(function(v){return v&&v!=='-'}).join(' • ');
     var sv=(o.old-o.price)*o.qty,hd=o.old>o.price;
 
-    ci.innerHTML+='<div class="cc"><img class="cc-img" src="'+o.img+'" onerror="this.src=\''+PH+'\'"><div class="cc-nf"><div class="cc-nm">'+o.name+'</div>'+(opts?'<div class="cc-op">'+opts+'</div>':'')+'<div>'+(sv>0?'<span class="cc-tg sv">HEMAT '+fRp(sv)+'</span>':'')+(o.isNew?'<span class="cc-tg nw">NEW</span>':'')+'</div><div class="cc-pr">'+(hd?'<span class="cc-ol">'+fRp(o.old*o.qty)+'</span>':'')+'<span class="cc-pc">'+fRp(o.price*o.qty)+'</span></div><div class="cc-ac"><button class="cc-dl" onclick="'+(o.qty>1?'mSame(\''+esc(o.name)+'\',\''+o.temp+'\',\''+o.size+'\',\''+o.sweet+'\',\''+o.ice+'\')':'rmGrp(\''+esc(o.name)+'\',\''+o.temp+'\',\''+o.size+'\',\''+o.sweet+'\',\''+o.ice+'\')')+'">'+(o.qty>1?'−':'🗑')+'</button><div class="cc-qw"><span class="cc-qn">'+o.qty+'</span><button class="cc-qb pl" onclick="aSame(\''+esc(o.name)+'\',\''+o.temp+'\',\''+o.size+'\',\''+o.sweet+'\',\''+o.ice+'\')">+</button></div></div></div></div>';
+    ci.innerHTML+='<div class="cc"><img class="cc-img" src="'+o.img+'" onerror="this.src=\''+PH+'\'"><div class="cc-nf"><div class="cc-nm">'+o.name+'</div>'+(opts?'<div class="cc-op">'+opts+'</div>':'')+'<div>'+(sv>0?'<span class="cc-tg sv">HEMAT '+fRp(sv)+'</span>':'')+(o.isNew?'<span class="cc-tg nw">NEW</span>':'')+'</div><div class="cc-pr">'+(hd?'<span class="cc-ol">'+fRp(o.old*o.qty)+'</span>':'')+'<span class="cc-pc">'+fRp(o.price*o.qty)+'</span></div><div class="cc-ac"><button class="cc-dl" onclick="'+(o.qty>1?'mSame(\''+esc(o.name)+'\',\''+esc(o.temp)+'\',\''+esc(o.size)+'\',\''+esc(o.sweet)+'\',\''+esc(o.ice)+'\')':'rmGrp(\''+esc(o.name)+'\',\''+esc(o.temp)+'\',\''+esc(o.size)+'\',\''+esc(o.sweet)+'\',\''+esc(o.ice)+'\')')+'">'+(o.qty>1?'−':'🗑')+'</button><div class="cc-qw"><span class="cc-qn">'+o.qty+'</span><button class="cc-qb pl" onclick="aSame(\''+esc(o.name)+'\',\''+esc(o.temp)+'\',\''+esc(o.size)+'\',\''+esc(o.sweet)+'\',\''+esc(o.ice)+'\')">+</button></div></div></div></div>';
   });
 
   document.getElementById('prTot').innerText=fRp(total);
@@ -541,9 +542,18 @@ function rCart(){
 }
 
 function fItem(n){for(var c in cats)for(var i=0;i<cats[c].length;i++)if(cats[c][i].name===n)return cats[c][i];return null}
-function aSame(n,t,s,sw,ic){var i=fItem(n);if(i&&i.orders)i.orders.push({temp:t,size:s,sweet:sw,ice:ic,price:i.price,old:i.origPrice});rCart();uBar()}
-function rmGrp(n,t,s,sw,ic){var i=fItem(n);if(i&&i.orders){i.orders=i.orders.filter(function(o){return!(o.temp===t&&o.size===s&&o.sweet===sw&&o.ice===ic)});if(!i.orders.length)delete i.orders}rCart();uBar()}
-function mSame(n,t,s,sw,ic){var i=fItem(n);if(i&&i.orders){var idx=-1;for(var j=0;j<i.orders.length;j++){if(i.orders[j].temp===t&&i.orders[j].size===s&&i.orders[j].sweet===sw&&i.orders[j].ice===ic){idx=j;break}}if(idx>=0)i.orders.splice(idx,1);if(!i.orders.length)delete i.orders}rCart();uBar()}
+function aSame(n,t,s,sw,ic){
+  n=dec(n);t=dec(t);s=dec(s);sw=dec(sw);ic=dec(ic);
+  var i=fItem(n);if(i&&i.orders)i.orders.push({temp:t,size:s,sweet:sw,ice:ic,price:i.price,old:i.origPrice});rCart();uBar()
+}
+function rmGrp(n,t,s,sw,ic){
+  n=dec(n);t=dec(t);s=dec(s);sw=dec(sw);ic=dec(ic);
+  var i=fItem(n);if(i&&i.orders){i.orders=i.orders.filter(function(o){return!(o.temp===t&&o.size===s&&o.sweet===sw&&o.ice===ic)});if(!i.orders.length)delete i.orders}rCart();uBar()
+}
+function mSame(n,t,s,sw,ic){
+  n=dec(n);t=dec(t);s=dec(s);sw=dec(sw);ic=dec(ic);
+  var i=fItem(n);if(i&&i.orders){var idx=-1;for(var j=0;j<i.orders.length;j++){if(i.orders[j].temp===t&&i.orders[j].size===s&&i.orders[j].sweet===sw&&i.orders[j].ice===ic){idx=j;break}}if(idx>=0)i.orders.splice(idx,1);if(!i.orders.length)delete i.orders}rCart();uBar()
+}
 
 // ===== WA =====
 function orderWA(){

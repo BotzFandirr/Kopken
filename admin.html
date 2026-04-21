@@ -202,6 +202,21 @@ function delProd(gc,idx){
 async function saveDb(){
   db=normalizeDb(db);
   const text=JSON.stringify(db,null,2);
+  try{
+    const rsp=await fetch('save_products.php',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:text
+    });
+    if(rsp.ok){
+      const out=await rsp.json().catch(()=>({ok:true}));
+      if(out&&out.ok!==false){
+        alert('Berhasil disimpan ke server (public/products.json terupdate).');
+        return;
+      }
+    }
+  }catch(_){}
+
   if(!jsonFileHandle){
     alert('Klik "Hubungkan products.json" dulu supaya simpan langsung ke file JSON.');
     return;
