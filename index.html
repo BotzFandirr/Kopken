@@ -276,9 +276,9 @@ img{-webkit-user-drag:none;user-select:none}
         <div class="ot">📐 Size</div>
         <div class="og-g" id="oSize">
           <button class="ob on" onclick="sOpt(this,'size')">Regular</button>
-          <button class="ob" onclick="sOpt(this,'size')">Large (+5rb)</button>
+          <button class="ob" onclick="sOpt(this,'size')">Large</button>
         </div>
-        <div class="oh" id="upHint">💡 Upgrade ke Large cuma +5rb!</div>
+        <div class="oh" id="upHint">💡 Ukuran Large tanpa biaya tambahan.</div>
       </div>
       <div class="og" id="sweetGrp">
         <div class="ot">🍬 Sweetness</div>
@@ -343,7 +343,7 @@ function buildData(db){
 
 // ===== INIT DATA =====
 var cats={},gNames={},order=[],icons={},modalGn=[];
-var waNum="6285161305218",LUP=5000,PH="https://cdn-icons-png.flaticon.com/512/3075/3075977.png";
+var waNum="6285161305218",LUP=0,PH="https://cdn-icons-png.flaticon.com/512/3075/3075977.png";
 var curCat=order[2],selI=null,selCat=null,qty=1;
 var selO={temp:"Ice",size:"Regular",sweet:"Normal",ice:"Normal"};
 
