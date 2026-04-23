@@ -1,719 +1,675 @@
 {
-    "raw": [
+  "raw": [
+    {
+      "gn": "Promo & Combo",
+      "gc": "Menu0005",
+      "items": [
         {
-            "gn": "Promo & Combo",
-            "gc": "Menu0005",
-            "items": [
-                {
-                    "n": "Free Upsize Large",
-                    "d": "GRATIS UPSIZE minumanmu ke LARGE!",
-                    "i": "https://cdn.kopikenangan.com/public/db5d25ff-9664-1997-90ec-de7fa35d9e0b",
-                    "op": 36000,
-                    "p": 17000
-                },
-                {
-                    "n": "Promo OG Aren Series",
-                    "d": "Nikmati Bundle The O.G Aren Series Diskon 25%",
-                    "i": "https://cdn.kopikenangan.com/ID/release/pub/b/m/2d8eb7fb-9285-4dd9-86d6-6cc7de300299?",
-                    "op": 48000,
-                    "p": 24000
-                }
-            ]
+          "n": "Free Upsize Large",
+          "d": "GRATIS UPSIZE minumanmu ke LARGE!",
+          "i": "https://cdn.kopikenangan.com/public/db5d25ff-9664-1997-90ec-de7fa35d9e0b",
+          "op": 36000,
+          "p": 17000
         },
         {
-            "gn": "Baru!",
-            "gc": "ArenSeries",
-            "items": [
-                {
-                    "n": "OG Aren Milky Speculoos",
-                    "nw": 1,
-                    "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/cc9f17b7-deb3-463e-ba9a-e1ba98ca3767?",
-                    "op": 23000,
-                    "p": 15000
-                },
-                {
-                    "n": "OG Aren Cup Holder",
-                    "nw": 1,
-                    "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/187b9572-6155-43ef-a92d-c011a2259ad5?",
-                    "op": 17000,
-                    "p": 12000
-                },
-                {
-                    "n": "Canele Aren",
-                    "nw": 1,
-                    "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/2902fb9a-1dd1-43c5-a012-50d12343d20a?",
-                    "op": 16000,
-                    "p": 11000
-                },
-                {
-                    "n": "Choco Muffin",
-                    "nw": 1,
-                    "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/ad2888b6-7984-4af8-b51f-fe133c3358f3?",
-                    "op": 16000,
-                    "p": 11000
-                },
-                {
-                    "n": "Blueberry Muffin",
-                    "nw": 1,
-                    "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/700109f4-1197-4092-af61-6b44c9b9c6c5?",
-                    "op": 16000,
-                    "p": 11000
-                },
-                {
-                    "n": "Choco Caramel",
-                    "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/6ea1cf28-bb9f-40f7-9b6d-94b24f1da329?",
-                    "op": 19000,
-                    "p": 13000
-                },
-                {
-                    "n": "Mocha Caramel",
-                    "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/2c86e33d-72e9-432f-abdd-e2019b4fda7a?",
-                    "op": 26000,
-                    "p": 16000
-                },
-                {
-                    "n": "Choco Caramel Frappe",
-                    "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/c96dd180-921d-4b2b-8967-97bc60af7f8d?",
-                    "op": 28000,
-                    "p": 17000
-                },
-                {
-                    "n": "Vanilla Choux Puff",
-                    "i": "https://cdn.kopikenangan.com/ID/release/pub/b/m/3756409f-4b66-45a6-a7d0-79df1781c98f?",
-                    "op": 13000,
-                    "p": 9000
-                },
-                {
-                    "n": "Strawberry Choux Puff",
-                    "i": "https://cdn.kopikenangan.com/ID/release/pub/b/m/5d94a75d-6bc7-4cb1-9a1b-714833df3d2a?",
-                    "op": 13000,
-                    "p": 9000
-                },
-                {
-                    "n": "Chocolate Choux Puff",
-                    "i": "https://cdn.kopikenangan.com/ID/release/pub/b/m/ca97cd27-d2de-46ba-9a50-df65be642329?",
-                    "op": 13000,
-                    "p": 9000
-                }
-            ]
+          "n": "Promo OG Aren Series",
+          "d": "Nikmati Bundle The O.G Aren Series Diskon 25%",
+          "i": "https://cdn.kopikenangan.com/ID/release/pub/b/m/2d8eb7fb-9285-4dd9-86d6-6cc7de300299?",
+          "op": 48000,
+          "p": 24000
         },
         {
-            "gn": "Coffee",
-            "gc": "Menu0002",
-            "items": [
-                {
-                    "n": "Butterscotch Sea Salt Latte",
-                    "i": "https://cdn.kopikenangan.com/public/e72f731f-d24e-7fed-372b-86eb398a0d22",
-                    "p": 16000,
-                    "op": 25000
-                },
-                {
-                    "n": "Butterscotch Aren Latte",
-                    "i": "https://cdn.kopikenangan.com/public/a1cb7272-f6e2-bb69-950d-59bc87515fd2",
-                    "p": 13000,
-                    "op": 20000
-                },
-                {
-                    "n": "Cafe Malt Latte",
-                    "i": "https://cdn.kopikenangan.com/public/4c582a52-fbc8-2d9e-0007-f6a1c0b5fed6",
-                    "p": 15000,
-                    "op": 23000
-                },
-                {
-                    "n": "Pistachio Aren Latte",
-                    "i": "https://cdn.kopikenangan.com/public/392219eb-08e1-daf9-69d6-a12a8242e5be",
-                    "p": 13000,
-                    "op": 19000
-                },
-                {
-                    "n": "Pistachio Latte",
-                    "i": "https://cdn.aceimg.com/052bee319.png",
-                    "p": 14000,
-                    "op": 22000
-                },
-                {
-                    "n": "Dubai Pistachio Latte",
-                    "i": "https://cdn.aceimg.com/5e7ab99ec.png",
-                    "p": 16000,
-                    "op": 26000
-                },
-                {
-                    "n": "OG Aren Speculoos Latte",
-                    "nw": 1,
-                    "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/2fe841e8-1b7a-47ad-a52d-34902f5fc564?",
-                    "op": 21000,
-                    "p": 14000
-                },
-                {
-                    "n": "Dua Shot OG Aren",
-                    "nw": 1,
-                    "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/a9ae7cf2-e7e6-4508-a3d4-03a929d2537c?",
-                    "op": 25000,
-                    "p": 16000
-                },
-                {
-                    "n": "Tiramisu Latte",
-                    "i": "https://cdn.kopikenangan.com/public/cb4aec85-075e-1baf-0c74-ba1e28f9a64b",
-                    "op": 20000,
-                    "p": 13000
-                },
-                {
-                    "n": "Tiramisu Mocha Latte",
-                    "i": "https://cdn.kopikenangan.com/public/1f4ac8e0-8e0d-dcf4-2f9e-3827b9c7788b",
-                    "op": 25000,
-                    "p": 16000
-                },
-                {
-                    "n": "Toffee Nut Latte",
-                    "i": "https://cdn.kopikenangan.com/public/c4dac7ee-aaf7-cf83-715a-cc3c0f9a5725",
-                    "op": 19000,
-                    "p": 13000
-                },
-                {
-                    "n": "Toffee Nut Aren Latte",
-                    "i": "https://cdn.kopikenangan.com/public/d45952aa-9f21-24f8-9ef4-5dfe87fda33d",
-                    "op": 21000,
-                    "p": 14000
-                },
-                {
-                    "n": "Toffee Nut Oat Latte",
-                    "i": "https://cdn.kopikenangan.com/public/6176a4f6-6e9a-1385-4af0-fd603114fdcf",
-                    "op": 22000,
-                    "p": 14000
-                },
-                {
-                    "n": "Kopi Kenangan Mantan",
-                    "i": "https://cdn.kopikenangan.com/public/da484154-47b1-a756-54a4-8b3490fb0eae",
-                    "op": 19000,
-                    "p": 13000
-                },
-                {
-                    "n": "Caramel Latte",
-                    "i": "https://cdn.kopikenangan.com/public/630c892e-17a7-0d8c-301f-9e2d33bf1de8",
-                    "op": 26000,
-                    "p": 16000
-                },
-                {
-                    "n": "Dua Shot Iced Shaken",
-                    "i": "https://cdn.kopikenangan.com/public/82e14825-c028-65d6-0c70-c352639bcf23",
-                    "op": 28000,
-                    "p": 17000
-                },
-                {
-                    "n": "Caramel Macchiato",
-                    "i": "https://cdn.kopikenangan.com/public/821509a2-815f-3349-896c-9d15f787ab37",
-                    "op": 28000,
-                    "p": 17000
-                },
-                {
-                    "n": "Kopi Susu Black Aren",
-                    "i": "https://cdn.kopikenangan.com/public/2ba99b9b-7912-397a-9fea-a21d4073a197",
-                    "op": 21000,
-                    "p": 14000
-                },
-                {
-                    "n": "Matcha Espresso",
-                    "i": "https://cdn.kopikenangan.com/public/20738f57-23ed-ea72-85f3-cdd8bc468352",
-                    "op": 26000,
-                    "p": 16000
-                },
-                {
-                    "n": "Mocha Latte",
-                    "i": "https://cdn.kopikenangan.com/public/92fe7698-7b99-9b4b-39db-8b01557fecb3",
-                    "op": 28000,
-                    "p": 17000
-                },
-                {
-                    "n": "Vanilla Latte",
-                    "i": "https://cdn.kopikenangan.com/public/6831574a-3d7f-d543-9a0c-bd68e7dcb54a",
-                    "op": 26000,
-                    "p": 16000
-                },
-                {
-                    "n": "Spanish Latte",
-                    "i": "https://cdn.kopikenangan.com/public/e3aa23b8-278d-54a0-0769-0de6e82b4d60",
-                    "op": 19000,
-                    "p": 13000
-                },
-                {
-                    "n": "Creamy Aren Latte",
-                    "i": "https://cdn.kopikenangan.com/public/34ac251c-14e6-44b7-d2b9-b4c63f6e2136",
-                    "op": 22000,
-                    "p": 14000
-                },
-                {
-                    "n": "Americano",
-                    "i": "https://cdn.kopikenangan.com/public/36155ddd-784d-a7d9-4d02-13d596417078",
-                    "op": 17000,
-                    "p": 12000
-                },
-                {
-                    "n": "Cappuccino",
-                    "i": "https://cdn.kopikenangan.com/public/8a0d42d0-4801-ca84-48e9-7b434b22aee4",
-                    "op": 22000,
-                    "p": 14000
-                },
-                {
-                    "n": "Latte",
-                    "i": "https://cdn.kopikenangan.com/public/7b33aac1-3e8a-f15d-bb58-158692adf173",
-                    "op": 22000,
-                    "p": 14000
-                },
-                {
-                    "n": "Seliter - Americano",
-                    "i": "https://cdn.kopikenangan.com/public/13344adc-4cc2-3113-b934-f2e8ba4fc0e9",
-                    "op": 90000,
-                    "p": 80000
-                },
-                {
-                    "n": "Seliter - KKM",
-                    "i": "https://cdn.kopikenangan.com/public/efa811be-2b27-3b4d-6ca9-ea01b09615f4",
-                    "op": 110000,
-                    "p": 100000
-                },
-                {
-                    "n": "Seliter - Latte",
-                    "i": "https://cdn.kopikenangan.com/public/aeae2c5f-6c75-97af-1325-5ae2a4592744",
-                    "op": 110000,
-                    "p": 100000
-                },
-                {
-                    "n": "Seliter - Matcha Espresso",
-                    "i": "https://cdn.kopikenangan.com/public/2f308a12-0ef5-afbe-f88f-58e074215fd2",
-                    "op": 130000,
-                    "p": 120000
-                },
-                {
-                    "n": "Seliter - Caramel Macchiato",
-                    "i": "https://cdn.kopikenangan.com/public/5d630716-4183-1dc2-a85b-8d454ad1fc59",
-                    "op": 120000,
-                    "p": 110000
-                },
-                {
-                    "n": "Seliter - Kopi Susu Black Aren",
-                    "i": "https://cdn.kopikenangan.com/public/23e79400-9a1c-79a9-27ba-4120fa5a02ae",
-                    "op": 115000,
-                    "p": 105000
-                }
-            ]
+          "n": "Signature Duo Disc 30%",
+          "d": "Nikmati 2 makanan favoritmu discount 30%!",
+          "i": "https://cdn.kopikenangan.com/ID/release/pub/b/m/afef0486-8a9f-4142-b133-21b9290cbdd0?",
+          "op": 28000,
+          "p": 19600
         },
         {
-            "gn": "Non Coffee",
-            "gc": "Menu0003",
-            "items": [
-                {
-                    "n": "Raspberry Hibiscus",
-                    "i": "https://cdn.kopikenangan.com/public/615287c4-c7a7-272c-c38e-df0c89886391",
-                    "p": 13000,
-                    "op": 20000
-                },
-                {
-                    "n": "Thai Tea",
-                    "i": "https://cdn.kopikenangan.com/public/eb094247-a000-4dbc-e2d2-7b7ab80ab7dc",
-                    "p": 14000,
-                    "op": 22000
-                },
-                {
-                    "n": "Lemon Black Tea",
-                    "i": "https://cdn.kopikenangan.com/public/3be29e5b-7a9d-8cb5-1d97-9667d92378f9",
-                    "p": 12000,
-                    "op": 17000
-                },
-                {
-                    "n": "Fresh Lemonade",
-                    "i": "https://cdn.kopikenangan.com/public/a68ad5fc-839b-e7b4-c502-8535f7e76e55",
-                    "p": 12000,
-                    "op": 17000
-                },
-                {
-                    "n": "Dubai Pistachio Chocolate",
-                    "i": "https://cdn.aceimg.com/49f7f5d0d.png",
-                    "p": 17000,
-                    "op": 27000
-                },
-                {
-                    "n": "Avocado Milk",
-                    "i": "https://cdn.kopikenangan.com/public/9f2e7aa5-3c8a-24cf-5944-84a5cc8d4cc8",
-                    "p": 15000,
-                    "op": 24000
-                },
-                {
-                    "n": "Avocado Caramel",
-                    "i": "https://cdn.kopikenangan.com/public/b5179af7-1dd7-aa4e-09f6-e1a1c8295602",
-                    "p": 17000,
-                    "op": 28000
-                },
-                {
-                    "n": "Hazelnut Choco Milk Tea",
-                    "i": "https://cdn.kopikenangan.com/public/9766bcc9-55b8-aa14-2a02-6c94e24ddaf4",
-                    "p": 14000,
-                    "op": 22000
-                },
-                {
-                    "n": "Toffee Nut Choco Macchiato",
-                    "i": "https://cdn.kopikenangan.com/public/ffc634eb-9bf9-6258-c541-b2407581cd4c",
-                    "op": 22000,
-                    "p": 14000
-                },
-                {
-                    "n": "Milk Oreo Crumble",
-                    "i": "https://cdn.kopikenangan.com/public/d27c63d0-4931-60fd-5eec-0963bdf095fc",
-                    "op": 26000,
-                    "p": 16000
-                },
-                {
-                    "n": "Babyccino",
-                    "i": "https://cdn.kopikenangan.com/public/afd5cdf3-964b-a63a-6db2-fb8c08410c61",
-                    "op": 19000,
-                    "p": 13000
-                },
-                {
-                    "n": "Caramel Dutch Choco",
-                    "i": "https://cdn.kopikenangan.com/public/c241a3f5-7e20-25be-a067-76170345d684",
-                    "op": 28000,
-                    "p": 17000
-                },
-                {
-                    "n": "Dutch Chocolate",
-                    "i": "https://cdn.kopikenangan.com/public/e7dfc639-f112-28b7-4cff-8e1cda6f82b5",
-                    "op": 26000,
-                    "p": 16000
-                },
-                {
-                    "n": "Kenangan Milk Tea",
-                    "i": "https://cdn.kopikenangan.com/public/5a15d4ef-582c-1391-5e58-e523d6b87398",
-                    "op": 21000,
-                    "p": 14000
-                },
-                {
-                    "n": "Milo Dinosaurus",
-                    "i": "https://cdn.kopikenangan.com/public/658f1737-546d-133b-ac36-aea2f524920c",
-                    "op": 23000,
-                    "p": 15000
-                },
-                {
-                    "n": "Oreo Shake",
-                    "i": "https://cdn.kopikenangan.com/public/8c0d86d6-3c45-8c5e-4679-ae4f6d935583",
-                    "op": 26000,
-                    "p": 16000
-                },
-                {
-                    "n": "Susu Grass Jelly",
-                    "i": "https://cdn.kopikenangan.com/public/9717e724-83d5-7c5f-55b9-efbb1b2a7864",
-                    "op": 24000,
-                    "p": 15000
-                },
-                {
-                    "n": "Seliter - Matcha Latte",
-                    "i": "https://cdn.kopikenangan.com/public/8399401d-f6a9-6ad9-b95d-7ed16eddaf39",
-                    "op": 100000,
-                    "p": 100000
-                }
-            ]
+          "n": "3 Roti Discount 15%",
+          "d": "Promo Spesial 3 Roti Cocok untuk Teman Kopimu!",
+          "i": "https://cdn.kopikenangan.com/ID/release/pub/b/m/2d7b3cab-2e0e-440e-bae5-79dcf1bfa252?",
+          "op": 42000,
+          "p": 33150
         },
         {
-            "gn": "Oatside Series",
-            "gc": "OatsideSeries",
-            "items": []
+          "n": "Beli 3 Hanya 47RB",
+          "d": "2 Kopi Susu Black Aren (R) + Gratis 1 Americano (R)",
+          "i": "https://cdn.kopikenangan.com/public/f8b0b941-bf2c-3949-0476-4e88c0a3c284",
+          "op": 47000,
+          "p": 47000
         },
         {
-            "gn": "Kenangan Frappe",
-            "gc": "FREEZYSERIES",
-            "items": [
-                {
-                    "n": "Tiramisu Frappe",
-                    "i": "https://cdn.kopikenangan.com/public/888be148-968b-e625-9f7c-e8a823563954",
-                    "op": 28000,
-                    "p": 17000
-                },
-                {
-                    "n": "Butterscotch Kenangan Frappe",
-                    "i": "https://cdn.kopikenangan.com/public/36ac278e-5212-00b3-ce73-e347a88b0372",
-                    "op": 30000,
-                    "p": 18000
-                },
-                {
-                    "n": "Matcha Kenangan Frappe",
-                    "i": "https://cdn.kopikenangan.com/public/f3c9aacf-fbae-370a-082d-9e719e4909e7",
-                    "op": 32000,
-                    "p": 19000
-                },
-                {
-                    "n": "Kopi Kenangan Mantan Frappe",
-                    "i": "https://cdn.kopikenangan.com/public/18899b9c-b242-468f-1839-c096e27b0225",
-                    "op": 27000,
-                    "p": 17000
-                },
-                {
-                    "n": "Vanilla Kenangan Frappe",
-                    "i": "https://cdn.kopikenangan.com/public/839fa121-427c-110e-6550-479d604d1f2d",
-                    "op": 25000,
-                    "p": 16000
-                },
-                {
-                    "n": "Dutch Choco Kenangan Frappe",
-                    "i": "https://cdn.kopikenangan.com/public/0bf0ec79-18a9-414f-4b7e-e50b940495bf",
-                    "op": 29000,
-                    "p": 18000
-                }
-            ]
+          "n": "PEKA 1",
+          "d": "3 Es Milo Dinosaurus (R) & 2 Es Kopi Kenangan Mantan (R)",
+          "i": "https://cdn.kopikenangan.com/public/77fdc0c2-0c39-a78e-1191-3ca3dc9a734a",
+          "op": 104000,
+          "p": 95000
         },
         {
-            "gn": "Chef Martin Praja's: Signature Bake",
-            "gc": "APPMARTINPRAJAFOOD",
-            "items": [
-                {
-                    "n": "Wahyu Sapi Toast",
-                    "i": "https://cdn.kopikenangan.com/public/9844851e-1ef8-dc73-309f-24bad50dffab",
-                    "p": 13000,
-                    "op": 19000
-                },
-                {
-                    "n": "Roti Susu Manis",
-                    "i": "https://cdn.kopikenangan.com/public/c84c79bb-893d-c83d-3562-c48b40c66aa8",
-                    "p": 8000,
-                    "op": 9000
-                },
-                {
-                    "n": "Roti Coklat Klasik",
-                    "i": "https://cdn.kopikenangan.com/public/b10ffd87-6f6e-fb75-8a37-2b1e993bdc8a",
-                    "p": 8000,
-                    "op": 9000
-                },
-                {
-                    "n": "Bambang Choco Cheese Toast",
-                    "i": "https://cdn.kopikenangan.com/public/bccc5e24-0e25-1a67-1361-5b22783c1833",
-                    "p": 12000,
-                    "op": 17000
-                },
-                {
-                    "n": "Sandwich Chicken Tartar",
-                    "i": "https://cdn.aceimg.com/80104b58e.png",
-                    "p": 14000,
-                    "op": 22000
-                },
-                {
-                    "n": "Sandwich Smoked Beef and Cheese",
-                    "i": "https://cdn.kopikenangan.com/public/4585b832-d0f3-772a-c1b4-909d61257ff7",
-                    "p": 14000,
-                    "op": 22000
-                },
-                {
-                    "n": "Croissant Abon",
-                    "i": "https://cdn.kopikenangan.com/public/c7a86374-40f3-b0f6-0b76-eed270acbe29",
-                    "p": 12000,
-                    "op": 15000
-                },
-                {
-                    "n": "Bolu Marble Mocha",
-                    "i": "https://cdn.aceimg.com/81a9e80d9.png",
-                    "p": 11000,
-                    "op": 15000
-                },
-                {
-                    "n": "Roti Srikaya",
-                    "i": "https://cdn.kopikenangan.com/public/a5bbc92a-9abe-d2f3-daf9-b00dca1ac336",
-                    "p": 11000,
-                    "op": 15000
-                },
-                {
-                    "n": "Roti Keju Manis",
-                    "i": "https://cdn.kopikenangan.com/public/682e9719-e692-1872-c174-d634a34ff67d",
-                    "p": 9000,
-                    "op": 12000
-                },
-                {
-                    "n": "Bolu Marble Ube",
-                    "i": "https://cdn.aceimg.com/8856632df.png",
-                    "p": 11000,
-                    "op": 15000
-                },
-                {
-                    "n": "Bolu Marble Chocolate",
-                    "i": "https://cdn.aceimg.com/03783e79a.png",
-                    "p": 11000,
-                    "op": 15000
-                },
-                {
-                    "n": "Dirty Croissant Milo",
-                    "i": "https://cdn.aceimg.com/098f538f0.png",
-                    "p": 13000,
-                    "op": 20000
-                },
-                {
-                    "n": "Roti Sisir Coklat",
-                    "i": "https://cdn.kopikenangan.com/public/36f309eb-b1f2-29e7-d94a-58904189ff84",
-                    "p": 10000,
-                    "op": 14000
-                },
-                {
-                    "n": "Roti Sisir Keju",
-                    "i": "https://cdn.kopikenangan.com/public/2de184ed-e322-9ab2-91a7-f1f3820a5598",
-                    "p": 11000,
-                    "op": 15000
-                },
-                {
-                    "n": "Roti Sisir Original",
-                    "i": "https://cdn.aceimg.com/6aa828a56.png",
-                    "p": 9000,
-                    "op": 12000
-                },
-                {
-                    "n": "Danish Tiramisu",
-                    "i": "https://cdn.kopikenangan.com/public/c2b6c796-2f1f-caf1-824b-4f4ca4d5410b",
-                    "p": 13000,
-                    "op": 20000
-                },
-                {
-                    "n": "Sugar Donut",
-                    "i": "https://cdn.aceimg.com/f8595f441.png",
-                    "p": 8000,
-                    "op": 10000
-                },
-                {
-                    "n": "Cheese Donut",
-                    "i": "https://cdn.aceimg.com/90b937b7f.png",
-                    "p": 11000,
-                    "op": 15000
-                },
-                {
-                    "n": "Donut Pink Conffeti",
-                    "i": "https://cdn.aceimg.com/90b937b7f.png",
-                    "p": 9000,
-                    "op": 12000
-                },
-                {
-                    "n": "Donut Matcha",
-                    "i": "https://cdn.aceimg.com/128328286.png",
-                    "p": 10000,
-                    "op": 14000
-                },
-                {
-                    "n": "Donut Abon",
-                    "i": "https://cdn.aceimg.com/f0c8095a1.png",
-                    "p": 10000,
-                    "op": 14000
-                },
-                {
-                    "n": "Donut Tiramisu",
-                    "i": "https://cdn.kopikenangan.com/public/89a7830a-0585-c6b0-5071-e1c6bf92ba4b",
-                    "op": 14000,
-                    "p": 10000
-                },
-                {
-                    "n": "Salt Bread Original",
-                    "i": "https://cdn.kopikenangan.com/public/952cbb6b-29f4-1822-1279-d71c11361897",
-                    "op": 12000,
-                    "p": 9000
-                },
-                {
-                    "n": "Salt Bread Beef and Cheese",
-                    "i": "https://cdn.kopikenangan.com/public/f94c4c73-d6f8-e075-8cd2-335b01d3d56d",
-                    "op": 15000,
-                    "p": 11000
-                },
-                {
-                    "n": "Canele Original",
-                    "i": "https://cdn.kopikenangan.com/public/ed8752cd-2ce6-eac2-5493-8960e76e9af6",
-                    "op": 13000,
-                    "p": 9000
-                },
-                {
-                    "n": "Canele Toffee Nut Crumble",
-                    "i": "https://cdn.kopikenangan.com/public/ab071238-ab7e-5e2a-6d48-d99d12090c57",
-                    "op": 16000,
-                    "p": 11000
-                },
-                {
-                    "n": "Donut Almond",
-                    "i": "https://cdn.kopikenangan.com/public/af51a03c-0c7b-40e6-6986-ef28d9777253",
-                    "op": 14000,
-                    "p": 10000
-                },
-                {
-                    "n": "Roti Gulung Abon",
-                    "i": "https://cdn.kopikenangan.com/public/96a88ebb-7e2a-88b7-3932-5826ed5c4468",
-                    "op": 18000,
-                    "p": 12000
-                },
-                {
-                    "n": "Roti Gulung Aren",
-                    "i": "https://cdn.kopikenangan.com/public/65daa6d6-ca8b-9afd-8a0f-10ff6e3f0ac9",
-                    "op": 15000,
-                    "p": 11000
-                }
-            ]
+          "n": "PEKA 2",
+          "d": "2 Es Americano (R) & 3 Es Kopi Kenangan Mantan (R)",
+          "i": "https://cdn.kopikenangan.com/public/4006f1d3-c580-8e27-1c1c-dc2f2d1b32f8",
+          "op": 91000,
+          "p": 84000
         },
         {
-            "gn": "Kenangan Toast",
-            "gc": "TOAST",
-            "items": [
-                {
-                    "n": "Adam Ayam Toast",
-                    "i": "https://cdn.kopikenangan.com/public/79146711-94ca-c5cf-8b18-11205acac4b7",
-                    "op": 19000,
-                    "p": 13000
-                }
-            ]
+          "n": "Oatside Kopi Kenangan Mantan",
+          "d": "",
+          "i": "https://cdn.kopikenangan.com/public/c651acb8-3df7-7b75-45e2-f207926d863a",
+          "op": 22000,
+          "p": 22000
         },
         {
-            "gn": "Food",
-            "gc": "Group0005",
-            "items": [
-                {
-                    "n": "Butter Croissant",
-                    "i": "https://cdn.kopikenangan.com/public/c45258b8-74b3-fb41-090d-b9f3a58cc343",
-                    "op": 15000,
-                    "p": 11000
-                },
-                {
-                    "n": "Chocolate Croissant",
-                    "i": "https://cdn.kopikenangan.com/public/c1f26135-eacc-4eca-0444-8356c507e0db",
-                    "op": 19000,
-                    "p": 13000
-                },
-                {
-                    "n": "Choco Chip Cookies",
-                    "i": "https://cdn.kopikenangan.com/public/4974032d-c48d-eac4-93a9-a5d47eaf5f60",
-                    "op": 14000,
-                    "p": 10000
-                },
-                {
-                    "n": "Join the Dark Side Cookie",
-                    "i": "https://cdn.kopikenangan.com/public/94e34498-1f57-c04a-c44b-8eb1043ffdf4",
-                    "op": 21000,
-                    "p": 14000
-                },
-                {
-                    "n": "Friend Chip Cookie",
-                    "i": "https://cdn.kopikenangan.com/public/bf62a77f-41cf-babb-97e1-4dfc6a889487",
-                    "op": 17000,
-                    "p": 12000
-                }
-            ]
+          "n": "Oatside Latte",
+          "d": "",
+          "i": "https://cdn.kopikenangan.com/public/4890326b-b307-b2f8-a6f1-1a6ae4b15804",
+          "op": 24000,
+          "p": 24000
         },
         {
-            "gn": "Special Merchandise",
-            "gc": "APPMERCHANDISE",
-            "items": []
+          "n": "2 Savory Toasts",
+          "d": "Nikmati 2 savory toast dengan harga promo!",
+          "i": "https://cdn.kopikenangan.com/ID/release/pub/b/m/8b4e82ad-3de3-4f24-8a7e-96138d30b8d1?",
+          "op": 38000,
+          "p": 33000
+        },
+        {
+          "n": "PaHe 1",
+          "d": "Americano & food favorit pilihanmu!",
+          "i": "https://cdn.kopikenangan.com/ID/release/pub/b/m/71841a98-2a74-412e-b40e-69a0dc309e8f?",
+          "op": 38000,
+          "p": 19000
+        },
+        {
+          "n": "PaHe 2",
+          "d": "Kopi Kenangan Mantan & food favorit pilihanmu!",
+          "i": "https://cdn.kopikenangan.com/ID/release/pub/b/m/456ef4d2-ae9b-41b0-a393-eabbd2852cc2?",
+          "op": 40000,
+          "p": 27000
+        },
+        {
+          "n": "PaHe 3",
+          "d": "Milo Dinosaurus & food favorit pilihanmu!",
+          "i": "https://cdn.kopikenangan.com/ID/release/pub/b/m/b830d898-4339-4bbb-9a2f-1d97fd55b059?",
+          "op": 43000,
+          "p": 28000
         }
-    ],
-    "icons": {
-        "Promo & Combo": "🔥",
-        "Baru!": "✨",
-        "Coffee": "☕",
-        "Non Coffee": "🧋",
-        "Oatside Series": "🥛",
-        "Kenangan Frappe": "🧊",
-        "Chef Martin Praja's: Signature Bake": "🥐",
-        "Kenangan Toast": "🍞",
-        "Food": "🍪",
-        "Special Merchandise": "🎁"
+      ]
     },
-    "modalGn": [
-        "Coffee",
-        "Non Coffee",
-        "Oatside Series",
-        "Kenangan Frappe"
-    ]
+    {
+      "gn": "Baru!",
+      "gc": "ArenSeries",
+      "items": [
+        {
+          "n": "OG Aren Milky Speculoos",
+          "nw": 1,
+          "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/cc9f17b7-deb3-463e-ba9a-e1ba98ca3767?",
+          "op": 22000,
+          "p": 22000
+        },
+        {
+          "n": "OG Aren Speculoos Latte",
+          "nw": 1,
+          "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/2fe841e8-1b7a-47ad-a52d-34902f5fc564?",
+          "op": 20000,
+          "p": 20000
+        },
+        {
+          "n": "Dua Shot OG Aren",
+          "nw": 1,
+          "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/a9ae7cf2-e7e6-4508-a3d4-03a929d2537c?",
+          "op": 24000,
+          "p": 24000
+        },
+        {
+          "n": "OG Aren Cup Holder",
+          "nw": 1,
+          "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/187b9572-6155-43ef-a92d-c011a2259ad5?",
+          "op": 17000,
+          "p": 17000
+        },
+        {
+          "n": "Canele Aren",
+          "nw": 1,
+          "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/2902fb9a-1dd1-43c5-a012-50d12343d20a?",
+          "op": 16000,
+          "p": 16000
+        },
+        {
+          "n": "Choco Muffin",
+          "nw": 1,
+          "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/ad2888b6-7984-4af8-b51f-fe133c3358f3?",
+          "op": 16000,
+          "p": 16000
+        },
+        {
+          "n": "Blueberry Muffin",
+          "nw": 1,
+          "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/700109f4-1197-4092-af61-6b44c9b9c6c5?",
+          "op": 16000,
+          "p": 16000
+        },
+        {
+          "n": "Choco Caramel",
+          "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/6ea1cf28-bb9f-40f7-9b6d-94b24f1da329?",
+          "op": 18000,
+          "p": 18000
+        },
+        {
+          "n": "Mocha Caramel",
+          "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/2c86e33d-72e9-432f-abdd-e2019b4fda7a?",
+          "op": 25000,
+          "p": 25000
+        },
+        {
+          "n": "Choco Caramel Frappe",
+          "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/c96dd180-921d-4b2b-8967-97bc60af7f8d?",
+          "op": 27000,
+          "p": 27000
+        },
+        {
+          "n": "Vanilla Choux Puff",
+          "i": "https://cdn.kopikenangan.com/ID/release/pub/b/m/3756409f-4b66-45a6-a7d0-79df1781c98f?",
+          "op": 13000,
+          "p": 13000
+        },
+        {
+          "n": "Strawberry Choux Puff",
+          "i": "https://cdn.kopikenangan.com/ID/release/pub/b/m/5d94a75d-6bc7-4cb1-9a1b-714833df3d2a?",
+          "op": 13000,
+          "p": 13000
+        },
+        {
+          "n": "Chocolate Choux Puff",
+          "i": "https://cdn.kopikenangan.com/ID/release/pub/b/m/ca97cd27-d2de-46ba-9a50-df65be642329?",
+          "op": 13000,
+          "p": 13000
+        }
+      ]
+    },
+    {
+      "gn": "Coffee",
+      "gc": "Menu0002",
+      "items": [
+        {
+          "n": "Tiramisu Latte",
+          "i": "https://cdn.kopikenangan.com/public/cb4aec85-075e-1baf-0c74-ba1e28f9a64b",
+          "op": 19000,
+          "p": 19000
+        },
+        {
+          "n": "Tiramisu Mocha Latte",
+          "i": "https://cdn.kopikenangan.com/public/1f4ac8e0-8e0d-dcf4-2f9e-3827b9c7788b",
+          "op": 24000,
+          "p": 24000
+        },
+        {
+          "n": "Toffee Nut Latte",
+          "i": "https://cdn.kopikenangan.com/public/c4dac7ee-aaf7-cf83-715a-cc3c0f9a5725",
+          "op": 18000,
+          "p": 18000
+        },
+        {
+          "n": "Toffee Nut Aren Latte",
+          "i": "https://cdn.kopikenangan.com/public/d45952aa-9f21-24f8-9ef4-5dfe87fda33d",
+          "op": 20000,
+          "p": 20000
+        },
+        {
+          "n": "Toffee Nut Oat Latte",
+          "i": "https://cdn.kopikenangan.com/public/6176a4f6-6e9a-1385-4af0-fd603114fdcf",
+          "op": 21000,
+          "p": 21000
+        },
+        {
+          "n": "Kopi Kenangan Mantan",
+          "i": "https://cdn.kopikenangan.com/public/da484154-47b1-a756-54a4-8b3490fb0eae",
+          "op": 19000,
+          "p": 19000
+        },
+        {
+          "n": "Caramel Latte",
+          "i": "https://cdn.kopikenangan.com/public/630c892e-17a7-0d8c-301f-9e2d33bf1de8",
+          "op": 25000,
+          "p": 25000
+        },
+        {
+          "n": "Dua Shot Iced Shaken",
+          "i": "https://cdn.kopikenangan.com/public/82e14825-c028-65d6-0c70-c352639bcf23",
+          "op": 25000,
+          "p": 25000
+        },
+        {
+          "n": "Caramel Macchiato",
+          "i": "https://cdn.kopikenangan.com/public/821509a2-815f-3349-896c-9d15f787ab37",
+          "op": 28000,
+          "p": 28000
+        },
+        {
+          "n": "Kopi Susu Black Aren",
+          "i": "https://cdn.kopikenangan.com/public/2ba99b9b-7912-397a-9fea-a21d4073a197",
+          "op": 21000,
+          "p": 21000
+        },
+        {
+          "n": "Matcha Espresso",
+          "i": "https://cdn.kopikenangan.com/public/20738f57-23ed-ea72-85f3-cdd8bc468352",
+          "op": 25000,
+          "p": 25000
+        },
+        {
+          "n": "Mocha Latte",
+          "i": "https://cdn.kopikenangan.com/public/92fe7698-7b99-9b4b-39db-8b01557fecb3",
+          "op": 28000,
+          "p": 28000
+        },
+        {
+          "n": "Vanilla Latte",
+          "i": "https://cdn.kopikenangan.com/public/6831574a-3d7f-d543-9a0c-bd68e7dcb54a",
+          "op": 25000,
+          "p": 25000
+        },
+        {
+          "n": "Spanish Latte",
+          "i": "https://cdn.kopikenangan.com/public/e3aa23b8-278d-54a0-0769-0de6e82b4d60",
+          "op": 19000,
+          "p": 19000
+        },
+        {
+          "n": "Creamy Aren Latte",
+          "i": "https://cdn.kopikenangan.com/public/34ac251c-14e6-44b7-d2b9-b4c63f6e2136",
+          "op": 21000,
+          "p": 21000
+        },
+        {
+          "n": "Americano",
+          "i": "https://cdn.kopikenangan.com/public/36155ddd-784d-a7d9-4d02-13d596417078",
+          "op": 17000,
+          "p": 17000
+        },
+        {
+          "n": "Cappuccino",
+          "i": "https://cdn.kopikenangan.com/public/8a0d42d0-4801-ca84-48e9-7b434b22aee4",
+          "op": 21000,
+          "p": 21000
+        },
+        {
+          "n": "Latte",
+          "i": "https://cdn.kopikenangan.com/public/7b33aac1-3e8a-f15d-bb58-158692adf173",
+          "op": 21000,
+          "p": 21000
+        },
+        {
+          "n": "Seliter - Americano",
+          "i": "https://cdn.kopikenangan.com/public/13344adc-4cc2-3113-b934-f2e8ba4fc0e9",
+          "op": 75000,
+          "p": 75000
+        },
+        {
+          "n": "Seliter - KKM",
+          "i": "https://cdn.kopikenangan.com/public/efa811be-2b27-3b4d-6ca9-ea01b09615f4",
+          "op": 90000,
+          "p": 90000
+        },
+        {
+          "n": "Seliter - Latte",
+          "i": "https://cdn.kopikenangan.com/public/aeae2c5f-6c75-97af-1325-5ae2a4592744",
+          "op": 90000,
+          "p": 90000
+        },
+        {
+          "n": "Seliter - Matcha Espresso",
+          "i": "https://cdn.kopikenangan.com/public/2f308a12-0ef5-afbe-f88f-58e074215fd2",
+          "op": 110000,
+          "p": 110000
+        },
+        {
+          "n": "Seliter - Caramel Macchiato",
+          "i": "https://cdn.kopikenangan.com/public/5d630716-4183-1dc2-a85b-8d454ad1fc59",
+          "op": 100000,
+          "p": 100000
+        },
+        {
+          "n": "Seliter - Kopi Susu Black Aren",
+          "i": "https://cdn.kopikenangan.com/public/23e79400-9a1c-79a9-27ba-4120fa5a02ae",
+          "op": 95000,
+          "p": 95000
+        }
+      ]
+    },
+    {
+      "gn": "Non Coffee",
+      "gc": "Menu0003",
+      "items": [
+        {
+          "n": "Toffee Nut Choco Macchiato",
+          "i": "https://cdn.kopikenangan.com/public/ffc634eb-9bf9-6258-c541-b2407581cd4c",
+          "op": 21000,
+          "p": 21000
+        },
+        {
+          "n": "Milk Oreo Crumble",
+          "i": "https://cdn.kopikenangan.com/public/d27c63d0-4931-60fd-5eec-0963bdf095fc",
+          "op": 26000,
+          "p": 26000
+        },
+        {
+          "n": "Babyccino",
+          "i": "https://cdn.kopikenangan.com/public/afd5cdf3-964b-a63a-6db2-fb8c08410c61",
+          "op": 19000,
+          "p": 19000
+        },
+        {
+          "n": "Caramel Dutch Choco",
+          "i": "https://cdn.kopikenangan.com/public/c241a3f5-7e20-25be-a067-76170345d684",
+          "op": 26000,
+          "p": 26000
+        },
+        {
+          "n": "Dutch Chocolate",
+          "i": "https://cdn.kopikenangan.com/public/e7dfc639-f112-28b7-4cff-8e1cda6f82b5",
+          "op": 24000,
+          "p": 24000
+        },
+        {
+          "n": "Kenangan Milk Tea",
+          "i": "https://cdn.kopikenangan.com/public/5a15d4ef-582c-1391-5e58-e523d6b87398",
+          "op": 20000,
+          "p": 20000
+        },
+        {
+          "n": "Milo Dinosaurus",
+          "i": "https://cdn.kopikenangan.com/public/658f1737-546d-133b-ac36-aea2f524920c",
+          "op": 22000,
+          "p": 22000
+        },
+        {
+          "n": "Oreo Shake",
+          "i": "https://cdn.kopikenangan.com/public/8c0d86d6-3c45-8c5e-4679-ae4f6d935583",
+          "op": 24000,
+          "p": 24000
+        },
+        {
+          "n": "Susu Grass Jelly",
+          "i": "https://cdn.kopikenangan.com/public/9717e724-83d5-7c5f-55b9-efbb1b2a7864",
+          "op": 24000,
+          "p": 24000
+        },
+        {
+          "n": "Seliter - Matcha Latte",
+          "i": "https://cdn.kopikenangan.com/public/8399401d-f6a9-6ad9-b95d-7ed16eddaf39",
+          "op": 100000,
+          "p": 100000
+        },
+        {
+          "n": "Air Mineral",
+          "i": "https://cdn.kopikenangan.com/public/a05ec204-65cd-2025-adcf-c7f141ce21c3",
+          "op": 9000,
+          "p": 9000
+        }
+      ]
+    },
+    {
+      "gn": "Oatside Series",
+      "gc": "OatsideSeries",
+      "items": [
+        {
+          "n": "Oatside Matcha Latte",
+          "i": "https://cdn.kopikenangan.com/public/d048cf0f-ed3f-8b76-26b0-75f651fe5dc7",
+          "op": 24000,
+          "p": 24000
+        }
+      ]
+    },
+    {
+      "gn": "Kenangan Frappe",
+      "gc": "FREEZYSERIES",
+      "items": [
+        {
+          "n": "Tiramisu Frappe",
+          "i": "https://cdn.kopikenangan.com/public/888be148-968b-e625-9f7c-e8a823563954",
+          "op": 27000,
+          "p": 27000
+        },
+        {
+          "n": "Butterscotch Kenangan Frappe",
+          "i": "https://cdn.kopikenangan.com/public/36ac278e-5212-00b3-ce73-e347a88b0372",
+          "op": 29000,
+          "p": 29000
+        },
+        {
+          "n": "Matcha Kenangan Frappe",
+          "i": "https://cdn.kopikenangan.com/public/f3c9aacf-fbae-370a-082d-9e719e4909e7",
+          "op": 31000,
+          "p": 31000
+        },
+        {
+          "n": "Kopi Kenangan Mantan Frappe",
+          "i": "https://cdn.kopikenangan.com/public/18899b9c-b242-468f-1839-c096e27b0225",
+          "op": 26000,
+          "p": 26000
+        },
+        {
+          "n": "Vanilla Kenangan Frappe",
+          "i": "https://cdn.kopikenangan.com/public/839fa121-427c-110e-6550-479d604d1f2d",
+          "op": 24000,
+          "p": 24000
+        },
+        {
+          "n": "Dutch Choco Kenangan Frappe",
+          "i": "https://cdn.kopikenangan.com/public/0bf0ec79-18a9-414f-4b7e-e50b940495bf",
+          "op": 28000,
+          "p": 28000
+        }
+      ]
+    },
+    {
+      "gn": "Chef Martin Praja's: Signature Bake",
+      "gc": "APPMARTINPRAJAFOOD",
+      "items": [
+        {
+          "n": "Donut Tiramisu",
+          "i": "https://cdn.kopikenangan.com/public/89a7830a-0585-c6b0-5071-e1c6bf92ba4b",
+          "op": 14000,
+          "p": 14000
+        },
+        {
+          "n": "Salt Bread Original",
+          "i": "https://cdn.kopikenangan.com/public/952cbb6b-29f4-1822-1279-d71c11361897",
+          "op": 12000,
+          "p": 12000
+        },
+        {
+          "n": "Salt Bread Beef and Cheese",
+          "i": "https://cdn.kopikenangan.com/public/f94c4c73-d6f8-e075-8cd2-335b01d3d56d",
+          "op": 15000,
+          "p": 15000
+        },
+        {
+          "n": "Canele Original",
+          "i": "https://cdn.kopikenangan.com/public/ed8752cd-2ce6-eac2-5493-8960e76e9af6",
+          "op": 14000,
+          "p": 14000
+        },
+        {
+          "n": "Canele Toffee Nut Crumble",
+          "i": "https://cdn.kopikenangan.com/public/ab071238-ab7e-5e2a-6d48-d99d12090c57",
+          "op": 16000,
+          "p": 16000
+        },
+        {
+          "n": "Donut Almond",
+          "i": "https://cdn.kopikenangan.com/public/af51a03c-0c7b-40e6-6986-ef28d9777253",
+          "op": 14000,
+          "p": 14000
+        },
+        {
+          "n": "Roti Gulung Abon",
+          "i": "https://cdn.kopikenangan.com/public/96a88ebb-7e2a-88b7-3932-5826ed5c4468",
+          "op": 18000,
+          "p": 18000
+        },
+        {
+          "n": "Roti Gulung Aren",
+          "i": "https://cdn.kopikenangan.com/public/65daa6d6-ca8b-9afd-8a0f-10ff6e3f0ac9",
+          "op": 15000,
+          "p": 15000
+        }
+      ]
+    },
+    {
+      "gn": "Kenangan Toast",
+      "gc": "TOAST",
+      "items": [
+        {
+          "n": "Bambang Choco Cheese Toast",
+          "i": "https://cdn.kopikenangan.com/public/bccc5e24-0e25-1a67-1361-5b22783c1833",
+          "op": 17000,
+          "p": 17000
+        },
+        {
+          "n": "Adam Ayam Toast",
+          "i": "https://cdn.kopikenangan.com/public/79146711-94ca-c5cf-8b18-11205acac4b7",
+          "op": 19000,
+          "p": 19000
+        },
+        {
+          "n": "Wahyu Sapi Toast",
+          "i": "https://cdn.kopikenangan.com/public/9844851e-1ef8-dc73-309f-24bad50dffab",
+          "op": 19000,
+          "p": 19000
+        }
+      ]
+    },
+    {
+      "gn": "Food",
+      "gc": "Group0005",
+      "items": [
+        {
+          "n": "Butter Croissant",
+          "i": "https://cdn.kopikenangan.com/public/c45258b8-74b3-fb41-090d-b9f3a58cc343",
+          "op": 15000,
+          "p": 15000
+        },
+        {
+          "n": "Chocolate Croissant",
+          "i": "https://cdn.kopikenangan.com/public/c1f26135-eacc-4eca-0444-8356c507e0db",
+          "op": 19000,
+          "p": 19000
+        },
+        {
+          "n": "Choco Chip Cookies",
+          "i": "https://cdn.kopikenangan.com/public/4974032d-c48d-eac4-93a9-a5d47eaf5f60",
+          "op": 14000,
+          "p": 14000
+        },
+        {
+          "n": "Join the Dark Side Cookie",
+          "i": "https://cdn.kopikenangan.com/public/94e34498-1f57-c04a-c44b-8eb1043ffdf4",
+          "op": 21000,
+          "p": 21000
+        },
+        {
+          "n": "Friend Chip Cookie",
+          "i": "https://cdn.kopikenangan.com/public/bf62a77f-41cf-babb-97e1-4dfc6a889487",
+          "op": 17000,
+          "p": 17000
+        }
+      ]
+    },
+    {
+      "gn": "Special Merchandise",
+      "gc": "APPMERCHANDISE",
+      "items": [
+        {
+          "n": "Alpha Cup",
+          "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/a23787cd-000f-4821-8da4-ee494547ec77?",
+          "op": 149000,
+          "p": 149000
+        },
+        {
+          "n": "ColorPop Twins Cup",
+          "i": "https://cdn.kopikenangan.com/public/7e869461-8bd6-cdaa-82cc-3807d27bc39d",
+          "op": 169000,
+          "p": 169000
+        },
+        {
+          "n": "ColorPop Twins Tumbler",
+          "i": "https://cdn.kopikenangan.com/public/5af438c0-b01b-e538-8496-8fc6815c4536",
+          "op": 179000,
+          "p": 179000
+        },
+        {
+          "n": "ColorPop Cup",
+          "i": "https://cdn.kopikenangan.com/public/c95f2d85-3720-2e8c-549c-0058dbeae1f8",
+          "op": 129000,
+          "p": 129000
+        },
+        {
+          "n": "ColorPop Sip Tumbler",
+          "i": "https://cdn.kopikenangan.com/public/dc890be9-01b5-0bbd-9ead-9247cfed603b",
+          "op": 209000,
+          "p": 209000
+        },
+        {
+          "n": "ColorPop Bottle",
+          "i": "https://cdn.kopikenangan.com/public/4cc9f0ae-e0c5-f405-6adc-048d9d1725ce",
+          "op": 179000,
+          "p": 179000
+        },
+        {
+          "n": "Capybara (A)",
+          "i": "https://cdn.kopikenangan.com/public/e31a5bc6-e1b4-7949-b1d4-fb7a4367b137",
+          "op": 49000,
+          "p": 49000
+        },
+        {
+          "n": "Capybara (B)",
+          "i": "https://cdn.kopikenangan.com/public/6ba3bc95-f602-7246-c9cb-3de33dd049d9",
+          "op": 49000,
+          "p": 49000
+        },
+        {
+          "n": "Capybara (C)",
+          "i": "https://cdn.kopikenangan.com/public/055f2c98-4a6c-bde7-d2f2-1658252eafa2",
+          "op": 49000,
+          "p": 49000
+        }
+      ]
+    },
+    {
+      "gn": "Paket Bundling",
+      "gc": "BUNDLING",
+      "items": [
+        {
+          "n": "Bundling Hemat 2 Cup",
+          "d": "Pilih varian minuman favoritmu dalam 1 paket.",
+          "i": "https://cdn-icons-png.flaticon.com/512/3075/3075977.png",
+          "op": 52000,
+          "p": 45000,
+          "opt": 1
+        }
+      ]
+    }
+  ],
+  "icons": {
+    "Promo & Combo": "🔥",
+    "Baru!": "✨",
+    "Coffee": "☕",
+    "Non Coffee": "🧋",
+    "Oatside Series": "🥛",
+    "Kenangan Frappe": "🧊",
+    "Chef Martin Praja's: Signature Bake": "🥐",
+    "Kenangan Toast": "🍞",
+    "Food": "🍪",
+    "Special Merchandise": "🎁",
+    "Paket Bundling": "📦"
+  },
+  "modalGn": [
+    "Coffee",
+    "Non Coffee",
+    "Oatside Series",
+    "Kenangan Frappe"
+  ]
 }
