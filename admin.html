@@ -62,8 +62,9 @@
         <select id="fCat"></select>
         <input id="fDesc" placeholder="Deskripsi (opsional)" />
       </div>
-      <div style="margin-top:8px;display:flex;gap:8px;align-items:center">
+      <div style="margin-top:8px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
         <label><input id="fNew" type="checkbox" style="width:auto" /> Tandai NEW</label>
+        <label><input id="fOpt" type="checkbox" style="width:auto" /> Tampilkan opsi minuman</label>
         <button style="max-width:220px" onclick="addProduct()">+ Tambahkan Produk</button>
       </div>
     </div>
@@ -76,7 +77,7 @@
       <div style="overflow:auto;margin-top:10px">
         <table>
           <thead>
-            <tr><th>Produk</th><th>Gambar (URL)</th><th class="hide-m">Kategori</th><th>Harga</th><th>Harga Coret</th><th>NEW</th><th>Aksi</th></tr>
+            <tr><th>Produk</th><th>Gambar (URL)</th><th class="hide-m">Kategori</th><th>Harga</th><th>Harga Coret</th><th>Opsi</th><th>NEW</th><th>Aksi</th></tr>
           </thead>
           <tbody id="tb"></tbody>
         </table>
@@ -136,6 +137,7 @@ function renderTable(){
     <td class="hide-m" data-label="Kategori">${r.cat.gn}</td>
     <td data-label="Harga"><input type="number" value="${r.it.p}" onchange="updPrice('${r.cat.gc}',${r.idx},this.value,'p')"></td>
     <td data-label="Harga Coret"><input type="number" value="${r.it.op}" onchange="updPrice('${r.cat.gc}',${r.idx},this.value,'op')"></td>
+    <td data-label="Opsi"><input type="checkbox" ${r.it.opt?'checked':''} onchange="updOpt('${r.cat.gc}',${r.idx},this.checked)"></td>
     <td data-label="NEW"><input type="checkbox" ${r.it.nw?'checked':''} onchange="updNew('${r.cat.gc}',${r.idx},this.checked)"></td>
     <td data-label="Aksi"><button class="row-btn alt" onclick="delProd('${r.cat.gc}',${r.idx})">Hapus</button></td>
   </tr>`).join('');
@@ -144,6 +146,7 @@ function renderTable(){
 function findCat(gc){return db.raw.find(c=>c.gc===gc)}
 function updPrice(gc,idx,val,key){const c=findCat(gc);if(!c)return;c.items[idx][key]=Number(val)||0}
 function updNew(gc,idx,val){const c=findCat(gc);if(!c)return;if(val)c.items[idx].nw=1;else delete c.items[idx].nw}
+function updOpt(gc,idx,val){const c=findCat(gc);if(!c)return;if(val)c.items[idx].opt=1;else delete c.items[idx].opt}
 function updField(gc,idx,val,key){const c=findCat(gc);if(!c)return;c.items[idx][key]=String(val||'').trim()}
 
 function addProduct(){
@@ -155,14 +158,16 @@ function addProduct(){
   const op=Number(document.getElementById('fOrig').value||p);
   const d=document.getElementById('fDesc').value.trim();
   const nw=document.getElementById('fNew').checked;
+  const opt=document.getElementById('fOpt').checked;
   if(!n||!i||!p){alert('Nama, gambar, dan harga wajib diisi');return}
   const key=n.toLowerCase();
   const hasDup=db.raw.some(x=>x.items.some(it=>String(it.n||'').trim().toLowerCase()===key));
   if(hasDup){alert('Nama produk sudah ada. Gunakan nama yang berbeda ya.');return}
-  const item={n,i,p,op}; if(d)item.d=d; if(nw)item.nw=1;
+  const item={n,i,p,op}; if(d)item.d=d; if(nw)item.nw=1; if(opt)item.opt=1;
   c.items.unshift(item);
   ['fName','fImg','fPrice','fOrig','fDesc'].forEach(id=>document.getElementById(id).value='');
   document.getElementById('fNew').checked=false;
+  document.getElementById('fOpt').checked=false;
   renderTable();
 }
 
