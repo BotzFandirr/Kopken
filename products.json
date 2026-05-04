@@ -192,6 +192,31 @@
             "gn": "Coffee",
             "gc": "Menu0002",
             "items": [
+                                {
+                    "n": "OG Thai Tea",
+                    "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/4f6889ec-6103-4fa0-a447-b7b3ee2742c9?",
+                    "p": 13500,
+                    "op": 19000,
+                    "nw": 1
+                },
+                {
+                    "n": "Thai Tea Coffe",
+                    "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/c9dd71f2-df74-48a0-93bb-51cb12007dd2?",
+                    "p": 16500,
+                    "op": 25000
+                },
+                {
+                    "n": "Thai Tea Aren",
+                    "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/29b126f1-f8fb-41d7-92f0-99d3fb95694d?",
+                    "p": 16000,
+                    "op": 24000
+                },
+                {
+                    "n": "Thai Tea Loaded",
+                    "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/6663aa38-c764-4ead-9db4-5a79634e9a77?",
+                    "p": 17500,
+                    "op": 27000
+                },
                 {
                     "n": "Tiramisu Latte",
                     "i": "https://cdn.kopikenangan.com/public/cb4aec85-075e-1baf-0c74-ba1e28f9a64b",
