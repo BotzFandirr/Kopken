@@ -627,7 +627,12 @@ function applyData(db){
   for(var c2 in cats)(cats[c2]||[]).forEach(function(it2){
     if(prevOrders[it2.name])it2.orders=prevOrders[it2.name];
   });
-  curCat=order[2]||order[0];
+  
+  // PERBAIKAN: Hanya set default jika curCat kosong atau kategori sebelumnya sudah tidak ada di database baru
+  if (!curCat || order.indexOf(curCat) === -1) {
+    curCat = order[2] || order[0];
+  }
+  
   rCats();
   rMenu();
   uBar();
