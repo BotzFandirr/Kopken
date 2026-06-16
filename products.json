@@ -192,138 +192,113 @@
             "gn": "Coffee",
             "gc": "Menu0002",
             "items": [
-                                {
-                    "n": "OG Thai Tea",
-                    "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/4f6889ec-6103-4fa0-a447-b7b3ee2742c9?",
-                    "p": 13800,
-                    "op": 19000,
-                    "nw": 1
-                },
-                {
-                    "n": "Thai Tea Coffe",
-                    "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/c9dd71f2-df74-48a0-93bb-51cb12007dd2?",
-                    "p": 16800,
-                    "op": 25000
-                },
-                {
-                    "n": "Thai Tea Aren",
-                    "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/29b126f1-f8fb-41d7-92f0-99d3fb95694d?",
-                    "p": 16800,
-                    "op": 24000
-                },
-                {
-                    "n": "Thai Tea Loaded",
-                    "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/6663aa38-c764-4ead-9db4-5a79634e9a77?",
-                    "p": 17800,
-                    "op": 27000
-                },
                 {
                     "n": "Tiramisu Latte",
                     "i": "https://cdn.kopikenangan.com/public/cb4aec85-075e-1baf-0c74-ba1e28f9a64b",
                     "op": 20000,
-                    "p": 13800
+                    "p": 16000
                 },
                 {
                     "n": "Tiramisu Mocha Latte",
                     "i": "https://cdn.kopikenangan.com/public/1f4ac8e0-8e0d-dcf4-2f9e-3827b9c7788b",
                     "op": 25000,
-                    "p": 16800
+                    "p": 18.8
                 },
                 {
                     "n": "Toffee Nut Latte",
                     "i": "https://cdn.kopikenangan.com/public/c4dac7ee-aaf7-cf83-715a-cc3c0f9a5725",
                     "op": 19000,
-                    "p": 13800
+                    "p": 16500
                 },
                 {
                     "n": "Toffee Nut Aren Latte",
                     "i": "https://cdn.kopikenangan.com/public/d45952aa-9f21-24f8-9ef4-5dfe87fda33d",
                     "op": 21000,
-                    "p": 14800
+                    "p": 16500
                 },
                 {
                     "n": "Toffee Nut Oat Latte",
                     "i": "https://cdn.kopikenangan.com/public/6176a4f6-6e9a-1385-4af0-fd603114fdcf",
                     "op": 22000,
-                    "p": 14800
+                    "p": 17000
                 },
                 {
                     "n": "Kopi Kenangan Mantan",
                     "i": "https://cdn.kopikenangan.com/public/da484154-47b1-a756-54a4-8b3490fb0eae",
                     "op": 19000,
-                    "p": 13800
+                    "p": 16000
                 },
                 {
                     "n": "Caramel Latte",
                     "i": "https://cdn.kopikenangan.com/public/630c892e-17a7-0d8c-301f-9e2d33bf1de8",
                     "op": 26000,
-                    "p": 17800
+                    "p": 19000
                 },
                 {
                     "n": "Dua Shot Iced Shaken",
                     "i": "https://cdn.kopikenangan.com/public/82e14825-c028-65d6-0c70-c352639bcf23",
                     "op": 28000,
-                    "p": 18800
+                    "p": 19500
                 },
                 {
                     "n": "Caramel Macchiato",
                     "i": "https://cdn.kopikenangan.com/public/821509a2-815f-3349-896c-9d15f787ab37",
                     "op": 28000,
-                    "p": 18800
+                    "p": 20000
                 },
                 {
                     "n": "Kopi Susu Black Aren",
                     "i": "https://cdn.kopikenangan.com/public/2ba99b9b-7912-397a-9fea-a21d4073a197",
                     "op": 21000,
-                    "p": 14800
+                    "p": 17800
                 },
                 {
                     "n": "Matcha Espresso",
                     "i": "https://cdn.kopikenangan.com/public/20738f57-23ed-ea72-85f3-cdd8bc468352",
                     "op": 26000,
-                    "p": 16800
+                    "p": 19000
                 },
                 {
                     "n": "Mocha Latte",
                     "i": "https://cdn.kopikenangan.com/public/92fe7698-7b99-9b4b-39db-8b01557fecb3",
                     "op": 28000,
-                    "p": 17800
+                    "p": 20500
                 },
                 {
                     "n": "Vanilla Latte",
                     "i": "https://cdn.kopikenangan.com/public/6831574a-3d7f-d543-9a0c-bd68e7dcb54a",
                     "op": 26000,
-                    "p": 16800
+                    "p": 19000
                 },
                 {
                     "n": "Spanish Latte",
                     "i": "https://cdn.kopikenangan.com/public/e3aa23b8-278d-54a0-0769-0de6e82b4d60",
                     "op": 19000,
-                    "p": 13800
+                    "p": 16000
                 },
                 {
                     "n": "Creamy Aren Latte",
                     "i": "https://cdn.kopikenangan.com/public/34ac251c-14e6-44b7-d2b9-b4c63f6e2136",
-                    "op": 22000,
-                    "p": 14800
+                    "op": 24000,
+                    "p": 17000
                 },
                 {
                     "n": "Americano",
                     "i": "https://cdn.kopikenangan.com/public/36155ddd-784d-a7d9-4d02-13d596417078",
                     "op": 17000,
-                    "p": 12800
+                    "p": 15000
                 },
                 {
                     "n": "Cappuccino",
                     "i": "https://cdn.kopikenangan.com/public/8a0d42d0-4801-ca84-48e9-7b434b22aee4",
                     "op": 22000,
-                    "p": 14800
+                    "p": 17000
                 },
                 {
                     "n": "Latte",
                     "i": "https://cdn.kopikenangan.com/public/7b33aac1-3e8a-f15d-bb58-158692adf173",
                     "op": 22000,
-                    "p": 14800
+                    "p": 17000
                 },
                 {
                     "n": "Seliter - Americano",
@@ -364,38 +339,63 @@
                 {
                     "n": "Butterscotch Sea Salt Latte",
                     "i": "https://cdn.kopikenangan.com/public/e72f731f-d24e-7fed-372b-86eb398a0d22",
-                    "p": 16800,
+                    "p": 18800,
                     "op": 25000
                 },
                 {
                     "n": "Butterscotch Aren Latte",
                     "i": "https://cdn.kopikenangan.com/public/a1cb7272-f6e2-bb69-950d-59bc87515fd2",
-                    "p": 13800,
+                    "p": 16000,
                     "op": 20000
                 },
                 {
                     "n": "Cafe Malt Latte",
                     "i": "https://cdn.kopikenangan.com/public/4c582a52-fbc8-2d9e-0007-f6a1c0b5fed6",
-                    "p": 15800,
+                    "p": 17500,
                     "op": 23000
                 },
                 {
                     "n": "Pistachio Aren Latte",
                     "i": "https://cdn.kopikenangan.com/public/392219eb-08e1-daf9-69d6-a12a8242e5be",
-                    "p": 13800,
+                    "p": 15500,
                     "op": 19000
                 },
                 {
                     "n": "Pistachio Latte",
                     "i": "https://cdn.aceimg.com/052bee319.png",
-                    "p": 14800,
+                    "p": 17500,
                     "op": 22000
                 },
                 {
                     "n": "Dubai Pistachio Latte",
                     "i": "https://cdn.aceimg.com/5e7ab99ec.png",
-                    "p": 16800,
+                    "p": 19000,
                     "op": 26000
+                },
+                {
+                    "n": "OG Thai Tea",
+                    "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/4f6889ec-6103-4fa0-a447-b7b3ee2742c9?",
+                    "p": 15500,
+                    "op": 19000,
+                    "nw": 1
+                },
+                {
+                    "n": "Thai Tea Coffe",
+                    "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/c9dd71f2-df74-48a0-93bb-51cb12007dd2?",
+                    "p": 19500,
+                    "op": 26000
+                },
+                {
+                    "n": "Thai Tea Aren",
+                    "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/29b126f1-f8fb-41d7-92f0-99d3fb95694d?",
+                    "p": 18000,
+                    "op": 24000
+                },
+                {
+                    "n": "Thai Tea Loaded",
+                    "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/6663aa38-c764-4ead-9db4-5a79634e9a77?",
+                    "p": 19500,
+                    "op": 27000
                 }
             ]
         },
@@ -407,55 +407,55 @@
                     "n": "Toffee Nut Choco Macchiato",
                     "i": "https://cdn.kopikenangan.com/public/ffc634eb-9bf9-6258-c541-b2407581cd4c",
                     "op": 22000,
-                    "p": 14800
+                    "p": 17000
                 },
                 {
                     "n": "Milk Oreo Crumble",
                     "i": "https://cdn.kopikenangan.com/public/d27c63d0-4931-60fd-5eec-0963bdf095fc",
                     "op": 26000,
-                    "p": 16800
+                    "p": 19500
                 },
                 {
                     "n": "Babyccino",
                     "i": "https://cdn.kopikenangan.com/public/afd5cdf3-964b-a63a-6db2-fb8c08410c61",
                     "op": 19000,
-                    "p": 13800
+                    "p": 16000
                 },
                 {
                     "n": "Caramel Dutch Choco",
                     "i": "https://cdn.kopikenangan.com/public/c241a3f5-7e20-25be-a067-76170345d684",
                     "op": 28000,
-                    "p": 17800
+                    "p": 19500
                 },
                 {
                     "n": "Dutch Chocolate",
                     "i": "https://cdn.kopikenangan.com/public/e7dfc639-f112-28b7-4cff-8e1cda6f82b5",
                     "op": 26000,
-                    "p": 16800
+                    "p": 18500
                 },
                 {
                     "n": "Kenangan Milk Tea",
                     "i": "https://cdn.kopikenangan.com/public/5a15d4ef-582c-1391-5e58-e523d6b87398",
                     "op": 21000,
-                    "p": 14800
+                    "p": 17000
                 },
                 {
                     "n": "Milo Dinosaurus",
                     "i": "https://cdn.kopikenangan.com/public/658f1737-546d-133b-ac36-aea2f524920c",
                     "op": 23000,
-                    "p": 15800
+                    "p": 18000
                 },
                 {
                     "n": "Oreo Shake",
                     "i": "https://cdn.kopikenangan.com/public/8c0d86d6-3c45-8c5e-4679-ae4f6d935583",
                     "op": 26000,
-                    "p": 16800
+                    "p": 18500
                 },
                 {
                     "n": "Susu Grass Jelly",
                     "i": "https://cdn.kopikenangan.com/public/9717e724-83d5-7c5f-55b9-efbb1b2a7864",
                     "op": 24000,
-                    "p": 15800
+                    "p": 18500
                 },
                 {
                     "n": "Seliter - Matcha Latte",
@@ -472,7 +472,7 @@
                 {
                     "n": "Raspberry Hibiscus",
                     "i": "https://cdn.kopikenangan.com/public/615287c4-c7a7-272c-c38e-df0c89886391",
-                    "p": 13800,
+                    "p": 17000,
                     "op": 20000
                 },
                 {
@@ -490,7 +490,7 @@
                 {
                     "n": "Fresh Lemonade",
                     "i": "https://cdn.kopikenangan.com/public/a68ad5fc-839b-e7b4-c502-8535f7e76e55",
-                    "p": 12800,
+                    "p": 14500,
                     "op": 17000
                 },
                 {
@@ -502,13 +502,13 @@
                 {
                     "n": "Avocado Milk",
                     "i": "https://cdn.kopikenangan.com/public/9f2e7aa5-3c8a-24cf-5944-84a5cc8d4cc8",
-                    "p": 15800,
+                    "p": 17500,
                     "op": 24000
                 },
                 {
                     "n": "Avocado Caramel",
                     "i": "https://cdn.kopikenangan.com/public/b5179af7-1dd7-aa4e-09f6-e1a1c8295602",
-                    "p": 17800,
+                    "p": 19500,
                     "op": 28000
                 },
                 {
@@ -516,6 +516,13 @@
                     "i": "https://cdn.kopikenangan.com/public/9766bcc9-55b8-aa14-2a02-6c94e24ddaf4",
                     "p": 14800,
                     "op": 22000
+                },
+                {
+                    "n": "Blueberry Americano",
+                    "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/8802c8aa-f66a-40bc-95ad-b34bab6fd59f?",
+                    "p": 14000,
+                    "op": 19000,
+                    "opt": 1
                 }
             ]
         },
@@ -539,37 +546,58 @@
                     "n": "Tiramisu Frappe",
                     "i": "https://cdn.kopikenangan.com/public/888be148-968b-e625-9f7c-e8a823563954",
                     "op": 28000,
-                    "p": 18000
+                    "p": 20000
                 },
                 {
                     "n": "Butterscotch Kenangan Frappe",
                     "i": "https://cdn.kopikenangan.com/public/36ac278e-5212-00b3-ce73-e347a88b0372",
                     "op": 30000,
-                    "p": 19000
+                    "p": 21000
                 },
                 {
                     "n": "Matcha Kenangan Frappe",
                     "i": "https://cdn.kopikenangan.com/public/f3c9aacf-fbae-370a-082d-9e719e4909e7",
                     "op": 32000,
-                    "p": 19800
+                    "p": 21500
                 },
                 {
                     "n": "Kopi Kenangan Mantan Frappe",
                     "i": "https://cdn.kopikenangan.com/public/18899b9c-b242-468f-1839-c096e27b0225",
                     "op": 27000,
-                    "p": 17800
+                    "p": 19500
                 },
                 {
                     "n": "Vanilla Kenangan Frappe",
                     "i": "https://cdn.kopikenangan.com/public/839fa121-427c-110e-6550-479d604d1f2d",
                     "op": 25000,
-                    "p": 16800
+                    "p": 18500
                 },
                 {
                     "n": "Dutch Choco Kenangan Frappe",
                     "i": "https://cdn.kopikenangan.com/public/0bf0ec79-18a9-414f-4b7e-e50b940495bf",
                     "op": 29000,
-                    "p": 18800
+                    "p": 20500
+                },
+                {
+                    "n": "Coffeeberry Frappe",
+                    "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/8ac7ac26-3849-49a7-ac2a-9a9189009eea?",
+                    "p": 17000,
+                    "op": 25000,
+                    "opt": 1
+                },
+                {
+                    "n": "Chocoberry Frappe",
+                    "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/7beea5fa-f9ca-45fc-8f1a-fbe09c76c62c?",
+                    "p": 18000,
+                    "op": 27000,
+                    "opt": 1
+                },
+                {
+                    "n": "Blueberry Frappe",
+                    "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/facc106d-0fa8-4909-8ff8-ea08bb2bc3ed?",
+                    "p": 16000,
+                    "op": 23000,
+                    "opt": 1
                 }
             ]
         },
@@ -756,6 +784,18 @@
                     "i": "https://cdn.aceimg.com/f0c8095a1.png",
                     "p": 10000,
                     "op": 14000
+                },
+                {
+                    "n": "Salt Bread Sausage",
+                    "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/90bfd157-738d-487d-9296-7443d33f45e7?",
+                    "p": 11000,
+                    "op": 15000
+                },
+                {
+                    "n": "Salt Bread Choco Butter",
+                    "i": "https://cdn.kopikenangan.com/ID/release/pub/kk-api-management/product/7f28ddd2-8290-4d5b-a233-3776c12ac8ae?",
+                    "p": 9000,
+                    "op": 12000
                 }
             ]
         },
